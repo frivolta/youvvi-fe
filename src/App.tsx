@@ -1,11 +1,40 @@
 
-import './App.css';
 import { Document, Page, Text, View, StyleSheet, PDFDownloadLink } from '@react-pdf/renderer';
 import { PDFViewer } from '@react-pdf/renderer';
-import React from 'react';
-
+import styled from 'styled-components/macro'
 
 function App() {
+  const Wrapper = styled.div`
+  flex: 1;
+  height: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+`
+
+const DocumentWrapper = styled.div`
+  flex: 1;
+  padding: 1em;
+  display: flex;
+  z-index: 500;
+  align-items: center;
+  justify-content: center;
+`
+
+const Message = styled.div`
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 1000;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  transition: all 1s;
+`
+
   // Create styles
 const styles = StyleSheet.create({
   page: {
@@ -49,12 +78,13 @@ const downloadLinkElement = () => (
 )
 
   return (
-    <div className="App">
-     <PDFViewer >
+    <Wrapper>
+      <DocumentWrapper>
+     <PDFViewer style={{width:'100%', height:'100%'}} >
     <MyDocument />
   </PDFViewer>
-  {downloadLinkElement()}
-    </div>
+   </DocumentWrapper>
+    </Wrapper>
   );
 }
 

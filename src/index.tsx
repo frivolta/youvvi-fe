@@ -1,11 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ReactPDF from '@react-pdf/renderer';
 import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
 import { PDFViewer } from '@react-pdf/renderer';
+import { createGlobalStyle } from 'styled-components'
+
+const GlobalStyle = createGlobalStyle`
+  html{
+    min-height:100%;/* make sure it is at least as tall as the viewport */
+    position:relative;
+  }
+  body, #root {
+    min-height:100%;
+    height: 100vh;
+  }
+`
+
 const styles = StyleSheet.create({
   page: {
     flexDirection: 'row',
@@ -17,6 +29,8 @@ const styles = StyleSheet.create({
     flexGrow: 1
   }
 });
+
+
 const MyDocument = () => (
   <Document>
     <Page size="A4" style={styles.page}>
@@ -40,6 +54,7 @@ const MyDocument = () => (
 
 ReactDOM.render(
   <React.StrictMode>
+    <GlobalStyle  />
     <App />
   </React.StrictMode>,
   document.getElementById('root')
