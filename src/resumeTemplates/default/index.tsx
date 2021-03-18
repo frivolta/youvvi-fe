@@ -14,24 +14,8 @@ import PlusIcon from "./images/jpg/plusIcon.jpg";
 const DefaultTemplate = () => (
   <Document>
     <Page style={styles.body} size="A4">
-      <TopInfo />
       <View style={styles.header} />
-
-      <View style={styles.bio}>
-        <Text style={styles.subtitle}>
-          Sono un Ui / Ux designer e sviluppatore front-end di Milano (IT), creo
-          siti web e applicazioni innovativi, accessibili e veloci. Cerco di
-          lasciare ogni bit di codice con cui interagisco più leggibile,
-          modulare, performante e accessibile di come l’ho trovato. Mi
-          appassiona scrivere e condividere ciò che ho imparato sia con il mio
-          team sia con la grande community del web. In squadra, tendo a
-          contribuire, mettere in risalto l’obiettivo finale del progetto e a
-          incoraggiare una comunicazione più chiara, conconseguenti migliori
-          risultati e un maggiore senso di soddisfazione per tutti i soggetti
-          coinvolti nel processo di sviluppo e design.
-        </Text>
-      </View>
-
+      <TopInfo />
       <View style={styles.workingExperience}>
         <View style={styles.blockTitle}>
           <View style={styles.blockTitleIcon}>

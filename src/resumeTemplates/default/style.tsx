@@ -41,6 +41,7 @@ const fonts = {
   paragraph: {
     size: 9,
     family: "AllerLight",
+    lineHeight: 1.5,
   },
   title: {
     size: 11,
@@ -134,6 +135,10 @@ const topInfoStyle = {
     width: 13,
     height: 13,
   },
+  bio: {
+    marginTop: 30,
+    marginBottom: 10,
+  },
 };
 
 const textStyle = {
@@ -156,6 +161,13 @@ const textStyle = {
   subtitle: {
     fontSize: 12,
     fontFamily: "AllerRegular",
+    alignSelf: "flex-start",
+  },
+  paragraph: {
+    fontSize: fonts.paragraph.size,
+    fontFamily: fonts.paragraph.family,
+    lineHeight: fonts.paragraph.lineHeight,
+    color: colors.dark,
     alignSelf: "flex-start",
   },
 };
@@ -190,11 +202,6 @@ export const styles = StyleSheet.create({
   ...topInfoStyle,
   ...textStyle,
   ...pageStyle,
-  bio: {
-    marginTop: 5,
-    backgroundColor: "red",
-  },
-
   workingExperience: {
     marginTop: 20,
     //@ts-ignore
