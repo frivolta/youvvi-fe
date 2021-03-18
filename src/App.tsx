@@ -2,7 +2,7 @@
 import { Document, Page, Text, View, StyleSheet, PDFDownloadLink } from '@react-pdf/renderer';
 import { PDFViewer } from '@react-pdf/renderer';
 import styled from 'styled-components/macro'
-import Resume from './docResume';
+import { DefaultTemplate } from './resumeTemplates';
 
 function App() {
   const Wrapper = styled.div`
@@ -82,7 +82,7 @@ const downloadLinkElement = () => (
     <Wrapper>
       <DocumentWrapper>
      <PDFViewer style={{width:'100%', height:'100%'}} >
-    <Resume />
+    <DefaultTemplate />
   </PDFViewer>
    </DocumentWrapper>
     </Wrapper>
