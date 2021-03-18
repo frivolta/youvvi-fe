@@ -23,24 +23,116 @@ export const WebsiteImage = 'https://i.ibb.co/PFZxH39/g346.png'
 export const PlusIcon = 'https://i.ibb.co/Lxw4PKw/icon.png'
 
 // Colors
+const colors = {
+    dark: '#232323',
+    darkSecondary: '#000000',
+    primary: '#FF204E',
+    light: '#848487'
+}
 
 // Font-sizes
+const fonts = {
+    display: {
+        size: 30,
+        family: 'AllerBold'
+    },
+    paragraph: {
+        size: 9,
+        family: 'AllerLight'
+    },
+    title:{
+        size: 11,
+        family: 'AllerRegular'
+    },
+    subtitle:{
+        size: 10,
+        family: 'AllerRegular'
+    }
+}
 
 // Typography
+const topInfoStyle = {
+    topInfo:{
+        backgroundColor: 'red',
+        display: 'flex',
+        alignItems: 'flex-start',
+        flexDirection: 'row',
+        justifyContent:'flex-start',
+        marginTop:60,
+      },
+       topInfoImage:{
+        backgroundColor: 'blue',
+        display: 'flex',
+        height: 130,
+           flexGrow: 27,
+         maxWidth: '27%',
+         justifyContent: 'center',
+         alignItems: 'center'
+      },
+      avatarImage: {
+        backgroundColor: 'yellow',
+        width: '33mm',
+        height: '33mm',
+        borderRadius: 1000,
+        border: 2,
+        borderColor: '#FF204E',
+        //@ts-ignore
+        overflow:'hidden'
+      },
+      
+       topInfoText:{
+        backgroundColor: 'green',
+        display: 'flex',
+         flexDirection: 'column',
+        maxWidth: '73%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 130,
+        flexGrow: 73,
+      },
+      titleArea: {
+        width: '100%',
+          backgroundColor: 'yellow',
+      },
+      contactArea: {
+        width: '100%',
+        backgroundColor: 'red',
+        height: 20,
+        flexDirection:'row',
+        justifyContent: 'flex-start',
+        alignItems: 'center'
+      },
+    contactAreaItem:{
+      backgroundColor: 'purple',
+      flexGrow: 1,
+      height: 20,
+      flexDirection:'row',
+    },
+    contactAreaIcon: {
+      width:18,
+      height:15,
+    },
+}
+const textStyle = {
+    title: {
+        fontSize: 24,
+        fontFamily: 'AllerRegular',
+        alignSelf: 'flex-start',
+        textTransform: 'uppercase'
+      },
+      subtitle: {
+        fontSize: 12,
+        fontFamily: 'AllerRegular',
+        alignSelf: 'flex-start',
+      },
+}
+
 
  export const styles = StyleSheet.create({
-    
-    title: {
-      fontSize: 24,
-      fontFamily: 'AllerRegular',
-      alignSelf: 'flex-start',
-      textTransform: 'uppercase'
-    },
-    subtitle: {
-      fontSize: 12,
-      fontFamily: 'AllerRegular',
-      alignSelf: 'flex-start',
-    },
+    ...topInfoStyle,
+    ...textStyle,
+
+
     bio:{
       marginTop: 5,
       backgroundColor: 'red',
@@ -150,66 +242,8 @@ export const PlusIcon = 'https://i.ibb.co/Lxw4PKw/icon.png'
       marginLeft: 20,
       alignSelf: 'flex-end'
     },
-    topInfo:{
-      backgroundColor: 'red',
-      display: 'flex',
-      alignItems: 'flex-start',
-      flexDirection: 'row',
-      justifyContent:'flex-start',
-      marginTop:60,
-    },
-     topInfoImage:{
-      backgroundColor: 'blue',
-      display: 'flex',
-      height: 130,
-         flexGrow: 27,
-       maxWidth: '27%',
-       justifyContent: 'center',
-       alignItems: 'center'
-    },
-    avatarImage: {
-      backgroundColor: 'yellow',
-      width: '33mm',
-      height: '33mm',
-      borderRadius: 1000,
-      border: 2,
-      borderColor: '#FF204E',
-      //@ts-ignore
-      overflow:'hidden'
-    },
-    
-     topInfoText:{
-      backgroundColor: 'green',
-      display: 'flex',
-       flexDirection: 'column',
-      maxWidth: '73%',
-      justifyContent: 'center',
-      alignItems: 'center',
-      height: 130,
-      flexGrow: 73,
-    },
-    titleArea: {
-      width: '100%',
-        backgroundColor: 'yellow',
-    },
-      contactArea: {
-        width: '100%',
-        backgroundColor: 'red',
-        height: 20,
-        flexDirection:'row',
-        justifyContent: 'flex-start',
-        alignItems: 'center'
-      },
-    contactAreaItem:{
-      backgroundColor: 'purple',
-      flexGrow: 1,
-      height: 20,
-      flexDirection:'row',
-    },
-    contactAreaIcon: {
-      width:18,
-      height:15,
-    },
+  
+      
     author: {
       fontSize: 12,
       textAlign: 'center',
