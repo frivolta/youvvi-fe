@@ -26,7 +26,7 @@ Font.register({
 
 // Colors
 const colors = {
-  dark: "#e6d5d5",
+  dark: "#232323",
   darkSecondary: "#000000",
   primary: "#FF204E",
   light: "#848487",
