@@ -2,6 +2,9 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 import { PDFViewer } from "@react-pdf/renderer";
 import styled from "styled-components/macro";
 import { DefaultTemplate } from "./resumeTemplates";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClient = new QueryClient();
 
 function App() {
   const Wrapper = styled.div`
@@ -32,14 +35,16 @@ function App() {
   );
 
   return (
-    <Wrapper>
-      {downloadLinkElement()}
-      <DocumentWrapper>
-        <PDFViewer style={{ width: "100%", height: "100%" }}>
-          <DefaultTemplate />
-        </PDFViewer>
-      </DocumentWrapper>
-    </Wrapper>
+    <QueryClientProvider client={queryClient}>
+      <Wrapper>
+        {downloadLinkElement()}
+        <DocumentWrapper>
+          <PDFViewer style={{ width: "100%", height: "100%" }}>
+            <DefaultTemplate />
+          </PDFViewer>
+        </DocumentWrapper>
+      </Wrapper>
+    </QueryClientProvider>
   );
 }
 

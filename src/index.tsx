@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createGlobalStyle } from "styled-components";
+import { Switch, BrowserRouter } from "react-router-dom";
+import { Routes } from "./Routes";
 
 const GlobalStyle = createGlobalStyle`
   html{
@@ -18,7 +19,11 @@ const GlobalStyle = createGlobalStyle`
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyle />
-    <App />
+    <BrowserRouter>
+      <Switch>
+        <Routes />
+      </Switch>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );
