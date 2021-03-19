@@ -26,7 +26,7 @@ Font.register({
 
 // Colors
 const colors = {
-  dark: "#232323",
+  dark: "#e6d5d5",
   darkSecondary: "#000000",
   primary: "#FF204E",
   light: "#848487",
@@ -154,8 +154,6 @@ const workingExperiencesStyle = {
   },
 };
 
-const educationsStyle = {};
-
 const textStyle = {
   display: {
     fontSize: fonts.display.size,
@@ -259,36 +257,14 @@ export const commonStyles = {
     ...textStyle.paragraphTitle,
     color: colors.primary,
   },
-};
-
-export const styles = StyleSheet.create({
-  ...topInfoStyle,
-  ...textStyle,
-  ...pageStyle,
-  ...workingExperiencesStyle,
-  ...commonStyles,
-  education: {
-    //@ts-ignore
-    overflow: "hidden",
-    position: "relative",
-    flexDirection: "column",
-    flexWrap: "wrap",
-    height: "25%",
+  blockDescriptionTitleSpaced: {
+    ...textStyle.paragraphTitle,
+    color: colors.primary,
+    marginBottom: 5,
   },
-  educationTitle: {
-    //@ts-ignore
-    overflow: "hidden",
-    position: "relative",
-    flexDirection: "column",
-    marginTop: 60,
-  },
-
-  blockDescriptionHalf: {
-    display: "flex",
-    flexDirection: "row",
-    padding: 5,
-    alignItems: "flex-start",
-    width: "50%",
+  paragraphTitleSpaced: {
+    ...textStyle.paragraphTitle,
+    marginBottom: 2,
   },
   blockTitleDate: {
     marginLeft: 10,
@@ -314,30 +290,66 @@ export const styles = StyleSheet.create({
     marginLeft: 20,
     alignSelf: "flex-end",
   },
+};
 
-  author: {
-    fontSize: 12,
-    textAlign: "center",
+const bottomNotes = {
+  bottomNotesContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    flexGrow: 1,
+    justifyContent: "flex-end",
     marginBottom: 40,
-  },
-
-  text: {
-    margin: 12,
-    fontSize: 14,
-    textAlign: "justify",
-    fontFamily: "Times-Roman",
-  },
-  image: {
-    marginVertical: 15,
-    marginHorizontal: 100,
-  },
-  pageNumber: {
-    position: "absolute",
-    fontSize: 12,
-    bottom: 30,
-    left: 0,
-    right: 0,
     textAlign: "center",
-    color: "grey",
+  },
+};
+
+const educationStyle = {
+  education: {
+    //@ts-ignore
+    overflow: "hidden",
+    position: "relative",
+    flexDirection: "column",
+    flexWrap: "wrap",
+    height: "25%",
+  },
+  educationTitle: {
+    //@ts-ignore
+    overflow: "hidden",
+    position: "relative",
+    flexDirection: "column",
+    marginTop: 60,
+  },
+};
+
+export const styles = StyleSheet.create({
+  ...topInfoStyle,
+  ...textStyle,
+  ...pageStyle,
+  ...workingExperiencesStyle,
+  ...commonStyles,
+  ...bottomNotes,
+  ...educationStyle,
+  skills: {
+    //@ts-ignore
+    overflow: "hidden",
+    position: "relative",
+    flexDirection: "column",
+    flexWrap: "wrap",
+    height: "25%",
+  },
+  skillsTitle: {
+    //@ts-ignore
+    overflow: "hidden",
+    position: "relative",
+    flexDirection: "column",
+    marginTop: 60,
+  },
+  blockDescriptionHalf: {
+    display: "flex",
+    flexDirection: "row",
+    padding: 5,
+    alignItems: "flex-start",
+    width: "50%",
   },
 });
