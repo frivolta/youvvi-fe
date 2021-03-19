@@ -3,36 +3,41 @@ import validator from "validator";
 import { useHistory } from "react-router-dom";
 
 import { Link } from "react-router-dom";
-
 import { Card } from "../../components/Card/Card";
 import { Input } from "../../components/Input/Input";
 import { Button } from "../../components/Button/Button";
 import { Label } from "../../components/Label/Label";
 import { Heading, variation } from "../../components/Heading/Heading";
 import { ErrorMessage } from "../../components/ErrorMessage/ErrorMessage";
-import { useMutation } from "react-query";
 import axios from "axios";
+import { AuthenticationOutput } from "../../types/api.types";
+import { apiAddress } from "../../api";
+import { useAuth } from "../../context/useAuthContext";
 
 export const signinApi = "/auth/authenticate";
 
 export const SigninContainer = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const { isAuth, setUser } = useAuth();
   let history = useHistory();
 
   const isValidEmail = (validationEmail: string): boolean =>
     validator.isEmail(email);
   const isValidPassword = (validationPassword: string): boolean =>
     !validator.isEmpty(validationPassword);
+
   const onSubmitDispatch = async (email: string, password: string) => {
-    const response = await axios.post(
-      "http://localhost:4000/auth/authenticate",
+    const response = await axios.post<AuthenticationOutput>(
+      apiAddress.AUTHENTICATE,
       {
         name: email,
         password,
       }
     );
-    console.log(response.data);
+    if (response.data.ok && response.data.token && response.data.userId) {
+      setUser({ id: response.data.userId, token: response.data.token });
+    }
   };
 
   return (
