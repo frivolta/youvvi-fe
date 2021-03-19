@@ -69,6 +69,74 @@ export const WorkingExperiences = () => {
           </Text>
         </View>
       </View>
+      <View style={styles.blockDescription}>
+        <View style={styles.blockTitleIconCircle}>
+          <Image src={CircleIcon} style={styles.blockIcon} />
+        </View>
+        <View style={styles.blockTitleDate}>
+          <Text style={styles.paragraphTitle}>Mar 2013 - Adesso</Text>
+        </View>
+        <View style={styles.blockTitleDescription}>
+          <Text style={styles.blockDescriptionTitle}>Run Design</Text>
+          <Text style={styles.paragraphTitle}>Front-end developer</Text>
+          <Text style={styles.blockDescriptionText}>
+            In sede presso la DCCI (Direzione Creativa Coordinamento Immagine),
+            ho preso parte alla realizzazione di campagne stampa e web dei brand
+            Mediaset.{" "}
+          </Text>
+        </View>
+      </View>
+      <View style={styles.blockDescription}>
+        <View style={styles.blockTitleIconCircle}>
+          <Image src={CircleIcon} style={styles.blockIcon} />
+        </View>
+        <View style={styles.blockTitleDate}>
+          <Text style={styles.paragraphTitle}>Mar 2013 - Adesso</Text>
+        </View>
+        <View style={styles.blockTitleDescription}>
+          <Text style={styles.blockDescriptionTitle}>Run Design</Text>
+          <Text style={styles.paragraphTitle}>Front-end developer</Text>
+          <Text style={styles.blockDescriptionText}>
+            In sede presso la DCCI (Direzione Creativa Coordinamento Immagine),
+            ho preso parte alla realizzazione di campagne stampa e web dei brand
+            Mediaset.{" "}
+          </Text>
+        </View>
+      </View>
+      <View style={styles.blockDescription}>
+        <View style={styles.blockTitleIconCircle}>
+          <Image src={CircleIcon} style={styles.blockIcon} />
+        </View>
+        <View style={styles.blockTitleDate}>
+          <Text style={styles.paragraphTitle}>Mar 2013 - Adesso</Text>
+        </View>
+        <View style={styles.blockTitleDescription}>
+          <Text style={styles.blockDescriptionTitle}>Run Design</Text>
+          <Text style={styles.paragraphTitle}>Front-end developer</Text>
+          <Text style={styles.blockDescriptionText}>
+            In sede presso la DCCI (Direzione Creativa Coordinamento Immagine),
+            ho preso parte alla realizzazione di campagne stampa e web dei brand
+            Mediaset.{" "}
+          </Text>
+        </View>
+      </View>
+      <View style={styles.blockDescription}>
+        <View style={styles.blockTitleIconCircle}>
+          <Image src={CircleIcon} style={styles.blockIcon} />
+        </View>
+        <View style={styles.blockTitleDate}>
+          <Text style={styles.paragraphTitle}>Mar 2013 - Adesso</Text>
+        </View>
+        <View style={styles.blockTitleDescription}>
+          <Text style={styles.blockDescriptionTitle}>Run Design</Text>
+          <Text style={styles.paragraphTitle}>Front-end developer</Text>
+          <Text style={styles.blockDescriptionText}>
+            In sede presso la DCCI (Direzione Creativa Coordinamento Immagine),
+            ho preso parte alla realizzazione di campagne stampa e web dei brand
+            Mediaset.{" "}
+          </Text>
+        </View>
+      </View>
     </View>
   );
 };

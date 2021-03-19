@@ -154,6 +154,8 @@ const workingExperiencesStyle = {
   },
 };
 
+const educationsStyle = {};
+
 const textStyle = {
   display: {
     fontSize: fonts.display.size,
@@ -234,7 +236,6 @@ export const commonStyles = {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    padding: 5,
     marginBottom: 10,
   },
   blockTitleText: {
@@ -247,7 +248,6 @@ export const commonStyles = {
   blockDescription: {
     display: "flex",
     flexDirection: "row",
-    padding: 5,
     alignItems: "flex-start",
     marginTop: 5,
   },
@@ -271,7 +271,6 @@ export const styles = StyleSheet.create({
     //@ts-ignore
     overflow: "hidden",
     position: "relative",
-    backgroundColor: "green",
     flexDirection: "column",
     flexWrap: "wrap",
     height: "25%",
@@ -280,7 +279,6 @@ export const styles = StyleSheet.create({
     //@ts-ignore
     overflow: "hidden",
     position: "relative",
-    backgroundColor: "green",
     flexDirection: "column",
     marginTop: 60,
   },
@@ -294,11 +292,11 @@ export const styles = StyleSheet.create({
   },
   blockTitleDate: {
     marginLeft: 10,
-    width: "20%",
+    width: "17%",
   },
   blockTitleDescription: {
     marginLeft: 20,
-    maxWidth: "70%",
+    maxWidth: "82%",
     alignSelf: "flex-end",
   },
   blockTitleIconHalf: {
