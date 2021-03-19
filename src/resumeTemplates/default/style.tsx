@@ -141,6 +141,19 @@ const topInfoStyle = {
   },
 };
 
+const workingExperiencesStyle = {
+  workingExperience: {
+    marginTop: 20,
+    //@ts-ignore
+    overflow: "hidden",
+    position: "relative",
+  },
+  blockTitleIconCircle: {
+    width: 5.5,
+    marginTop: 2.5,
+  },
+};
+
 const textStyle = {
   display: {
     fontSize: fonts.display.size,
@@ -158,16 +171,30 @@ const textStyle = {
     alignSelf: "flex-start",
     textTransform: "uppercase",
   },
-  subtitle: {
-    fontSize: 12,
-    fontFamily: "AllerRegular",
-    alignSelf: "flex-start",
-  },
   paragraph: {
     fontSize: fonts.paragraph.size,
     fontFamily: fonts.paragraph.family,
     lineHeight: fonts.paragraph.lineHeight,
     color: colors.dark,
+    alignSelf: "flex-start",
+  },
+  paragraphTitle: {
+    fontSize: fonts.paragraph.size,
+    fontFamily: fonts.subtitle.family,
+    color: colors.darkSecondary,
+    alignSelf: "flex-start",
+  },
+
+  title: {
+    fontSize: fonts.title.size,
+    fontFamily: fonts.title.family,
+    color: colors.dark,
+    alignSelf: "flex-start",
+  },
+
+  subtitle: {
+    fontSize: 12,
+    fontFamily: "AllerRegular",
     alignSelf: "flex-start",
   },
 };
@@ -198,17 +225,48 @@ const pageStyle = {
   },
 };
 
+export const commonStyles = {
+  blockTitleIcon: {
+    width: 10,
+    marginBottom: 5,
+  },
+  blockTitle: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    padding: 5,
+    marginBottom: 10,
+  },
+  blockTitleText: {
+    marginLeft: 10,
+    flexGrow: 1,
+    paddingBottom: 5,
+    borderBottom: 0.7,
+    borderColor: colors.darkSecondary,
+  },
+  blockDescription: {
+    display: "flex",
+    flexDirection: "row",
+    padding: 5,
+    alignItems: "flex-start",
+    marginTop: 5,
+  },
+  blockDescriptionText: {
+    ...textStyle.paragraph,
+    marginTop: 5,
+  },
+  blockDescriptionTitle: {
+    ...textStyle.paragraphTitle,
+    color: colors.primary,
+  },
+};
+
 export const styles = StyleSheet.create({
   ...topInfoStyle,
   ...textStyle,
   ...pageStyle,
-  workingExperience: {
-    marginTop: 20,
-    //@ts-ignore
-    overflow: "hidden",
-    position: "relative",
-    backgroundColor: "green",
-  },
+  ...workingExperiencesStyle,
+  ...commonStyles,
   education: {
     //@ts-ignore
     overflow: "hidden",
@@ -226,39 +284,13 @@ export const styles = StyleSheet.create({
     flexDirection: "column",
     marginTop: 60,
   },
-  blockTitle: {
-    backgroundColor: "yellow",
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    padding: 5,
-  },
-  blockDescription: {
-    display: "flex",
-    flexDirection: "row",
-    padding: 5,
-    alignItems: "flex-start",
-  },
+
   blockDescriptionHalf: {
     display: "flex",
     flexDirection: "row",
     padding: 5,
     alignItems: "flex-start",
     width: "50%",
-  },
-  blockTitleTitle: {
-    marginLeft: 10,
-    flexGrow: 1,
-    paddingBottom: 5,
-    borderBottom: 1,
-  },
-  blockTitleIcon: {
-    width: 10,
-    paddingBottom: 5,
-  },
-  blockTitleIconCircle: {
-    width: 10,
-    marginTop: 5,
   },
   blockTitleDate: {
     marginLeft: 10,
@@ -274,8 +306,8 @@ export const styles = StyleSheet.create({
     paddingBottom: 5,
   },
   blockTitleIconCircleHalf: {
-    width: 10,
-    marginTop: 5,
+    width: 10.5,
+    marginTop: 2.5,
   },
   blockTitleDateHalf: {
     marginLeft: 10,
