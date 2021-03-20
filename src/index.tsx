@@ -6,6 +6,8 @@ import { Switch, BrowserRouter } from "react-router-dom";
 import { Routes } from "./Routes";
 import { AuthProvider } from "./context/useAuthContext";
 import { debugContextDevtool } from "react-context-devtool";
+import { Provider } from "react-redux";
+import store from "./app/store";
 
 const GlobalStyle = createGlobalStyle`
   html{
@@ -22,14 +24,16 @@ const container = document.getElementById("root");
 
 ReactDOM.render(
   <React.StrictMode>
-    <GlobalStyle />
-    <BrowserRouter>
-      <Switch>
-        <AuthProvider>
-          <Routes />
-        </AuthProvider>
-      </Switch>
-    </BrowserRouter>
+    <Provider store={store}>
+      <GlobalStyle />
+      <BrowserRouter>
+        <Switch>
+          <AuthProvider>
+            <Routes />
+          </AuthProvider>
+        </Switch>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   container
 );
