@@ -5,8 +5,9 @@ import React from "react";
 import styled from "styled-components/macro";
 import { apiAddress } from "../api";
 import { DefaultTemplate } from "../resumeTemplates";
-import { Education, EducationOutput } from "../types/api.types";
+import { EducationOutput } from "../types/api.types";
 import { tempToken } from "../temp";
+import { Education } from "../types/entities.types";
 export const ResumePreviewPage = () => {
   const [education, setEducation] = React.useState<Education[]>([]);
 

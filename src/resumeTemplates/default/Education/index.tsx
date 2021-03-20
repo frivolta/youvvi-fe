@@ -2,7 +2,7 @@ import { Text, View, Image } from "@react-pdf/renderer";
 import { styles } from "../style";
 import PlusIcon from "../images/jpg/plusIcon.jpg";
 import CircleIcon from "../images/jpg/circle.jpg";
-import { Education as EducationInterface } from "../../../types/api.types";
+import { Education as EducationInterface } from "../../../types/entities.types";
 
 export interface EducationComponent {
   educations: EducationInterface[];

@@ -5,7 +5,7 @@ import { WorkingExperiences } from "./WorkingExperience";
 import { Education } from "./Education";
 import { Skills } from "./Skills";
 import { BottomNotes } from "./BottomNotes";
-import { Education as EducationInterface } from "../../types/api.types";
+import { Education as EducationInterface } from "../../types/entities.types";
 
 export interface DefaultTemplate {
   educations: EducationInterface[];
