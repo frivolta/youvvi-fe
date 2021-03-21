@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice, isRejectedWithValue, PayloadAction, ThunkDispatch } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { apiAddress } from '../../api'
 import { tempToken } from '../../temp'
@@ -84,7 +84,7 @@ export const profileSlice = createSlice({
     }
 })
 
-export const profileSelector = (state: RootState) => state.auth
+export const profileSelector = (state: RootState) => state.profile
 export default profileSlice.reducer
 
 

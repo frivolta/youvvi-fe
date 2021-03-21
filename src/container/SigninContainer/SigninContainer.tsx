@@ -1,6 +1,5 @@
 import React from "react";
 import validator from "validator";
-import { useHistory } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 import { Card } from "../../components/Card/Card";
@@ -19,8 +18,7 @@ export const signinApi = "/auth/authenticate";
 export const SigninContainer = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const { isAuth, setUser } = useAuth();
-  let history = useHistory();
+  const { setUser } = useAuth();
 
   const isValidEmail = (validationEmail: string): boolean =>
     validator.isEmail(email);

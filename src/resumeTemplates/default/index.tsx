@@ -7,11 +7,11 @@ import { Skills } from "./Skills";
 import { BottomNotes } from "./BottomNotes";
 import { Education as EducationInterface } from "../../types/entities.types";
 
-export interface DefaultTemplate {
+export interface Props {
   educations: EducationInterface[];
 }
 
-const DefaultTemplate = ({ educations }: DefaultTemplate) => (
+const DefaultTemplate = ({ educations }: Props) => (
   <Document>
     <Page style={styles.body} size="A4">
       <View style={styles.header} />

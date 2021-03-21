@@ -1,7 +1,6 @@
-import { configureStore, Action,getDefaultMiddleware  } from '@reduxjs/toolkit'
+import { configureStore, getDefaultMiddleware  } from '@reduxjs/toolkit'
 import logger from 'redux-logger';
 import { useDispatch } from 'react-redux'
-import { ThunkAction } from 'redux-thunk'
 import authReducer from './auth/authSlice'
 import profileReducer from './profile/profileSlice';
 
