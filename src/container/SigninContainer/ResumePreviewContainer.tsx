@@ -1,10 +1,11 @@
 import { PDFViewer } from "@react-pdf/renderer";
 import styled from "styled-components";
 import { DefaultTemplate } from "../../resumeTemplates";
-import { Education } from "../../types/entities.types";
+import { Education, Skillset } from "../../types/entities.types";
 
 interface Props {
   education: Education[];
+  skillset: Skillset[];
 }
 
 export const ResumePreviewContainer = (props: Props) => {
@@ -29,7 +30,10 @@ export const ResumePreviewContainer = (props: Props) => {
     <Wrapper>
       <DocumentWrapper>
         <PDFViewer style={{ width: "100%", height: "100%" }}>
-          <DefaultTemplate educations={props.education} />
+          <DefaultTemplate
+            educations={props.education}
+            skillset={props.skillset}
+          />
         </PDFViewer>
       </DocumentWrapper>
     </Wrapper>

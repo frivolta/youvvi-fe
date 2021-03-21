@@ -7,9 +7,12 @@ export const ResumePreviewPage = () => {
   const userProfile = useSelector(profileSelector);
   const dispatch = useDispatch();
   const education = userProfile.currentProfile.educations || [];
+  const skillset = userProfile.currentProfile.skillsets || [];
+
+  console.log(skillset);
   React.useEffect(() => {
     dispatch(fetchProfile());
   }, [dispatch]);
 
-  return <ResumePreviewContainer education={education} />;
+  return <ResumePreviewContainer education={education} skillset={skillset} />;
 };

@@ -2,8 +2,40 @@ import { Text, View, Image } from "@react-pdf/renderer";
 import { styles } from "../style";
 import PlusIcon from "../images/jpg/plusIcon.jpg";
 import CircleIcon from "../images/jpg/circle.jpg";
+import { Skillset } from "../../../types/entities.types";
 
-export const Skills = () => {
+interface Props {
+  skillset: Skillset[];
+}
+
+export const Skills = ({ skillset }: Props) => {
+  const skillsetElement = (skillset: Skillset) => {
+    const parsedSkills = JSON.parse(skillset.skills) as string[];
+
+    return (
+      <View style={styles.blockDescriptionHalf} key={skillset.id}>
+        <View style={styles.blockTitleIconCircle}>
+          <Image src={CircleIcon} style={styles.blockIcon} />
+        </View>
+        <View style={styles.blockTitleDescriptionHalf}>
+          <Text style={styles.blockDescriptionTitleSpaced}>
+            {skillset.title}
+          </Text>
+          {parsedSkills.length > 0
+            ? parsedSkills.map((skill, i) => (
+                <Text
+                  key={`${skillset.id}${i}${skill}`}
+                  style={styles.paragraphTitleSpaced}
+                >
+                  {skill}
+                </Text>
+              ))
+            : null}
+        </View>
+      </View>
+    );
+  };
+
   return (
     <>
       <View style={styles.skillsTitle}>
@@ -16,22 +48,11 @@ export const Skills = () => {
           </View>
         </View>
       </View>
-      <View style={styles.skills}>
-        <View style={styles.blockDescriptionHalf}>
-          <View style={styles.blockTitleIconCircle}>
-            <Image src={CircleIcon} style={styles.blockIcon} />
-          </View>
-          <View style={styles.blockTitleDescriptionHalf}>
-            <Text style={styles.blockDescriptionTitleSpaced}>
-              Framework e librerie
-            </Text>
-            <Text style={styles.paragraphTitleSpaced}>React JS</Text>
-            <Text style={styles.paragraphTitleSpaced}>React Native</Text>
-            <Text style={styles.paragraphTitleSpaced}>Express</Text>
-            <Text style={styles.paragraphTitleSpaced}>JQuery</Text>
-          </View>
+      {skillset.length > 0 ? (
+        <View style={styles.skills}>
+          {skillset.map((s) => skillsetElement(s))}
         </View>
-      </View>
+      ) : null}
     </>
   );
 };
