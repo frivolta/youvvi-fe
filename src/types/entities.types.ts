@@ -4,6 +4,10 @@ export interface CoreEntity{
     updatedAt: Date;
   }
 
+export interface QueryError {
+    error: string
+}
+
 export interface CompleteProfile {
     email: string | null;
     userId:string | null;
