@@ -5,21 +5,21 @@ export interface CoreEntity{
   }
 
 export interface CompleteProfile {
-    email: string;
-    userId:string;
+    email: string | null;
+    userId:string | null;
     profile: Profile;
-    workingExperiences: WorkingExperience[];
-    educations: Education[];
-    skillsets: Skillset[];
+    workingExperiences?: WorkingExperience[];
+    educations?: Education[];
+    skillsets?: Skillset[];
 }
 
 export interface Profile extends CoreEntity{
-    name: string;
+    name: string|null;
     email?: string;
     phone?: string;
     website?: string;
     biography?: string;
-    workTitle: string;
+    workTitle: string|null;
     photoUrl?: string;
 }
 

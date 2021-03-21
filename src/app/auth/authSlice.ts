@@ -1,15 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from '../store'
 
-export interface AuthError {
-    message: string
-}
 
 export interface AuthState {
     isAuth: boolean
     currentUser?: CurrentUser
     isLoading: boolean
-    error: AuthError | null
+    error: string | null
 }
 
 export interface CurrentUser {
@@ -37,7 +34,7 @@ export const authSlice = createSlice({
             state.isAuth = false
             state.currentUser = undefined
         },
-        setAuthFailed: (state, { payload }: PayloadAction<AuthError>) => {
+        setAuthFailed: (state, { payload }: PayloadAction<string>) => {
             state.error = payload
             state.isAuth = false
         },

@@ -8,14 +8,19 @@ import { DefaultTemplate } from "../resumeTemplates";
 import { EducationOutput } from "../types/api.types";
 import { tempToken } from "../temp";
 import { Education } from "../types/entities.types";
+import { fetchProfile } from "../app/profile/profileSlice";
+import { useDispatch, useSelector } from "react-redux";
+
 export const ResumePreviewPage = () => {
   const [education, setEducation] = React.useState<Education[]>([]);
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
     fetchUserProfile(tempToken);
   }, []);
 
   const fetchUserProfile = async (token: string) => {
+    dispatch(fetchProfile());
     const result = await axios.get<EducationOutput>(apiAddress.GET_EDUCATION, {
       headers: { Authorization: `Bearer ${token}` },
     });

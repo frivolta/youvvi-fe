@@ -3,12 +3,13 @@ import logger from 'redux-logger';
 import { useDispatch } from 'react-redux'
 import { ThunkAction } from 'redux-thunk'
 import authReducer from './auth/authSlice'
+import profileReducer from './profile/profileSlice';
 
 const middleware = [...getDefaultMiddleware(), logger];
 
 
 const store = configureStore({
-    reducer: {auth: authReducer},
+    reducer: {auth: authReducer, profile:profileReducer},
     middleware,
 })
 
