@@ -25,6 +25,7 @@ export interface Profile extends CoreEntity{
     biography?: string;
     workTitle: string|null;
     photoUrl?: string;
+    bottomNotes?:string[];
 }
 
 export interface WorkingExperience extends CoreEntity{

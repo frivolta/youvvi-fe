@@ -1,16 +1,28 @@
 import { Text, View } from "@react-pdf/renderer";
 import { styles } from "../style";
 
-export const BottomNotes = () => {
+interface Props {
+  bottomNotes: string[];
+}
+
+export const BottomNotes = ({ bottomNotes }: Props) => {
+  /*   {getBottomNotes()?.map((bottomNote, i) => (
+    <Text style={styles.paragraphTitle} key={bottomNote + i}>
+      {bottomNote}
+    </Text>
+  ))} */
   return (
     <>
       <View style={styles.bottomNotesContainer}>
-        <Text style={styles.paragraphTitle}>
-          Autorizzo il trattamento dei dati personali contenuti nel mio
-          curriculum vitae in base all’art. 13 del D. Lgs. 196/2003 e all’art.
-          13 del Regolamento UE 2016/679 relativo alla protezione delle persone
-          fisiche con riguardo al trattamento dei dati personali.
-        </Text>
+        {bottomNotes
+          ? bottomNotes.map((bottomNote, i) => (
+              <View style={styles.bottomNote}>
+                <Text style={styles.paragraphTitle} key={bottomNote + i}>
+                  {bottomNote}
+                </Text>
+              </View>
+            ))
+          : null}
       </View>
     </>
   );

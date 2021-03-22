@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { DefaultTemplate } from "../../resumeTemplates";
 import {
   Education,
+  Profile,
   Skillset,
   WorkingExperience,
 } from "../../types/entities.types";
@@ -11,6 +12,7 @@ interface Props {
   education: Education[];
   skillset: Skillset[];
   workingExperiences: WorkingExperience[];
+  profileInfos: Profile;
 }
 
 export const ResumePreviewContainer = (props: Props) => {
@@ -39,6 +41,7 @@ export const ResumePreviewContainer = (props: Props) => {
             educations={props.education}
             skillset={props.skillset}
             workingExperiences={props.workingExperiences}
+            profileInfos={props.profileInfos}
           />
         </PDFViewer>
       </DocumentWrapper>

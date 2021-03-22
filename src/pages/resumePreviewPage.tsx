@@ -10,8 +10,8 @@ export const ResumePreviewPage = () => {
   const skillset = userProfile.currentProfile.skillsets || [];
   const workingExperiences =
     userProfile.currentProfile.workingExperiences || [];
+  const profileInfos = userProfile.currentProfile.profile;
 
-  console.log(skillset);
   React.useEffect(() => {
     dispatch(fetchProfile());
   }, [dispatch]);
@@ -21,6 +21,7 @@ export const ResumePreviewPage = () => {
       education={education}
       skillset={skillset}
       workingExperiences={workingExperiences}
+      profileInfos={profileInfos}
     />
   );
 };

@@ -1,65 +1,88 @@
 import { Text, View, Image } from "@react-pdf/renderer";
 import { styles } from "../style";
 import WebsiteIcon from "../images/jpg/www.jpg";
-import ProfileImage from "../images/jpg/profileImage.jpg";
 import MailIcon from "../images/jpg/email.jpg";
 import PhoneIcon from "../images/jpg/phone.jpg";
+import { Profile } from "../../../types/entities.types";
 
-export const TopInfo = () => {
+interface Props {
+  profileInfos: Profile;
+}
+
+const contactGroup = {
+  phone: {
+    title: "Phone",
+    imageComponent: <Image src={PhoneIcon} style={styles.phoneIcon} />,
+  },
+  email: {
+    title: "Email",
+    imageComponent: <Image src={MailIcon} style={styles.mailIcon} />,
+  },
+  website: {
+    title: "Website",
+    imageComponent: <Image src={WebsiteIcon} style={styles.websiteIcon} />,
+  },
+};
+
+export const TopInfo = ({ profileInfos }: Props) => {
+  const topInfoImageElement = profileInfos.photoUrl ? (
+    <View style={styles.topInfoImage}>
+      <View style={styles.avatarImage}>
+        <Image src={profileInfos.photoUrl} />
+      </View>
+    </View>
+  ) : null;
+
+  const titleElement = (
+    <View style={styles.titleArea}>
+      <Text style={styles.display}>{profileInfos.name}</Text>
+      <Text style={styles.displaySubtitle}>{profileInfos.workTitle}</Text>
+    </View>
+  );
+
+  const getContactArea = (
+    contactName: "phone" | "email" | "website",
+    contactText: string
+  ) => {
+    return (
+      <View style={styles.contactAreaItem}>
+        {contactGroup[contactName].imageComponent}
+        <View style={styles.contactAreaText}>
+          <Text style={styles.contactTitle}>
+            {contactGroup[contactName].title}
+          </Text>
+          <Text style={styles.contactText}>{contactText}</Text>
+        </View>
+      </View>
+    );
+  };
+
+  const bioElement = profileInfos.biography ? (
+    <View style={styles.bio}>
+      <Text style={styles.paragraph}>{profileInfos.biography}</Text>
+    </View>
+  ) : null;
+
   return (
     <>
       <View style={styles.topInfo}>
-        <View style={styles.topInfoImage}>
-          <View style={styles.avatarImage}>
-            <Image src={ProfileImage} />
-          </View>
-        </View>
+        {topInfoImageElement}
         <View style={styles.topInfoText}>
-          <View style={styles.titleArea}>
-            <Text style={styles.display}>Filippo Rivolta</Text>
-            <Text style={styles.displaySubtitle}>
-              FRONT-END DEVELOPER, UI / UX DESIGNER
-            </Text>
-          </View>
+          {titleElement}
           <View style={styles.contactArea}>
-            <View style={styles.contactAreaItem}>
-              <Image src={WebsiteIcon} style={styles.websiteIcon} />
-              <View style={styles.contactAreaText}>
-                <Text style={styles.contactTitle}>Website</Text>
-                <Text style={styles.contactText}>www.rivoltafilippo.com</Text>
-              </View>
-            </View>
-            <View style={styles.contactAreaItem}>
-              <Image src={PhoneIcon} style={styles.phoneIcon} />
-              <View style={styles.contactAreaText}>
-                <Text style={styles.contactTitle}>Phone</Text>
-                <Text style={styles.contactText}>+39 334 7001377</Text>
-              </View>
-            </View>
-            <View style={styles.contactAreaItem}>
-              <Image src={MailIcon} style={styles.mailIcon} />
-              <View style={styles.contactAreaText}>
-                <Text style={styles.contactTitle}>Email</Text>
-                <Text style={styles.contactText}>rivoltafilippo@gmail.com</Text>
-              </View>
-            </View>
+            {profileInfos.website
+              ? getContactArea("website", profileInfos.website)
+              : null}
+            {profileInfos.phone
+              ? getContactArea("phone", profileInfos.phone)
+              : null}
+            {profileInfos.email
+              ? getContactArea("email", profileInfos.email)
+              : null}
           </View>
         </View>
       </View>
-      <View style={styles.bio}>
-        <Text style={styles.paragraph}>
-          Sono un Ui / Ux designer e sviluppatore front-end di Milano (IT), creo
-          siti web e applicazioni innovativi, accessibili e veloci. Cerco di
-          lasciare ogni bit di codice con cui interagisco più leggibile,
-          modulare, performante e accessibile di come l’ho trovato. Mi
-          appassiona scrivere e condividere ciò che ho imparato sia con il mio
-          team sia con la grande community del web. In squadra, tendo a
-          contribuire, mettere in risalto l’obiettivo finale del progetto e a
-          incoraggiare una comunicazione più chiara, conconseguenti migliori
-          risultati e un maggiore senso di soddisfazione per tutti i soggetti
-          coinvolti nel processo di sviluppo e design.
-        </Text>
-      </View>
+      {bioElement}
     </>
   );
 };

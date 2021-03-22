@@ -302,6 +302,7 @@ const bottomNotes = {
     marginBottom: 40,
     textAlign: "center",
   },
+  bottomNote: { marginTop: 15 },
 };
 
 const educationStyle = {
