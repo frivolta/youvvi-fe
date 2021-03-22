@@ -8,11 +8,19 @@ export const ResumePreviewPage = () => {
   const dispatch = useDispatch();
   const education = userProfile.currentProfile.educations || [];
   const skillset = userProfile.currentProfile.skillsets || [];
+  const workingExperiences =
+    userProfile.currentProfile.workingExperiences || [];
 
   console.log(skillset);
   React.useEffect(() => {
     dispatch(fetchProfile());
   }, [dispatch]);
 
-  return <ResumePreviewContainer education={education} skillset={skillset} />;
+  return (
+    <ResumePreviewContainer
+      education={education}
+      skillset={skillset}
+      workingExperiences={workingExperiences}
+    />
+  );
 };

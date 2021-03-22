@@ -8,19 +8,28 @@ import { BottomNotes } from "./BottomNotes";
 import {
   Education as EducationInterface,
   Skillset,
+  WorkingExperience,
 } from "../../types/entities.types";
 
 export interface Props {
   educations: EducationInterface[];
   skillset: Skillset[];
+  workingExperiences: WorkingExperience[];
 }
 
-const DefaultTemplate = ({ educations, skillset }: Props) => (
+const DefaultTemplate = ({
+  educations,
+  skillset,
+  workingExperiences,
+}: Props) => (
   <Document>
     <Page style={styles.body} size="A4">
       <View style={styles.header} />
       <TopInfo />
-      <WorkingExperiences />
+      {workingExperiences.length > 0 ? (
+        <WorkingExperiences workingExperiences={workingExperiences} />
+      ) : null}
+
       <View style={styles.footer} />
     </Page>
 
