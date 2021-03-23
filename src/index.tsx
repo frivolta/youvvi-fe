@@ -8,6 +8,7 @@ import { AuthProvider } from "./context/useAuthContext";
 import { debugContextDevtool } from "react-context-devtool";
 import { Provider } from "react-redux";
 import store from "./app/store";
+import setAuthToken from "./app/helpers/auth";
 
 const GlobalStyle = createGlobalStyle`
   html{
@@ -19,6 +20,11 @@ const GlobalStyle = createGlobalStyle`
     height: 100vh;
   }
 `;
+// Check for token
+if (localStorage.getItem("yuvviToken")) {
+  // Set auth token header auth
+  setAuthToken(localStorage.yuvviToken);
+}
 
 const container = document.getElementById("root");
 

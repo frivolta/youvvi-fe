@@ -8,6 +8,11 @@ export interface QueryError {
     error: string
 }
 
+export interface CurrentUser {
+    token: string;
+    userId: string;
+}
+
 export interface CompleteProfile {
     email: string | null;
     userId:string | null;

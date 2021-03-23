@@ -5,6 +5,11 @@ export interface QueryOutput {
     error?: string;
 }
 
+export interface AuthenticationInput{
+    name: string;
+    password: string;
+}
+
 export interface AuthenticationOutput extends QueryOutput{
     token?: string;
     userId?:string;

@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { apiAddress } from '../../api'
-import { tempToken } from '../../temp'
 import { GetCompleteUserProfileOutput } from '../../types/api.types'
 import { CompleteProfile, QueryError } from '../../types/entities.types'
 import { RootState } from '../store'
@@ -41,9 +40,7 @@ const initialState: ProfileState = {
 // Async actions
 export const fetchProfile = createAsyncThunk<CompleteProfile,undefined,{rejectValue: QueryError}>('profile/fetchProfile', async(_,thunkApi)=>{
     try{
-    const response = await axios.get<GetCompleteUserProfileOutput>(apiAddress.GET_PROFILE,  {
-        headers: { Authorization: `Bearer ${tempToken}` },
-      })
+    const response = await axios.get<GetCompleteUserProfileOutput>(apiAddress.GET_PROFILE)
 
     // Check if user has profile
     if (response.data.ok && response.data.user){

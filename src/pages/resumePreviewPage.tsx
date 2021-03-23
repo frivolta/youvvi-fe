@@ -2,6 +2,7 @@ import React from "react";
 import { fetchProfile, profileSelector } from "../app/profile/profileSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { ResumePreviewContainer } from "../container/SigninContainer/ResumePreviewContainer";
+import { sortEntities } from "../app/helpers/sort";
 
 export const ResumePreviewPage = () => {
   const userProfile = useSelector(profileSelector);
@@ -20,7 +21,7 @@ export const ResumePreviewPage = () => {
     <ResumePreviewContainer
       education={education}
       skillset={skillset}
-      workingExperiences={workingExperiences}
+      workingExperiences={sortEntities(workingExperiences)}
       profileInfos={profileInfos}
     />
   );

@@ -1,5 +1,6 @@
 import React from "react";
 import validator from "validator";
+import { useDispatch } from "react-redux";
 
 import { Link } from "react-router-dom";
 import { Card } from "../../components/Card/Card";
@@ -8,17 +9,15 @@ import { Button } from "../../components/Button/Button";
 import { Label } from "../../components/Label/Label";
 import { Heading, variation } from "../../components/Heading/Heading";
 import { ErrorMessage } from "../../components/ErrorMessage/ErrorMessage";
-import axios from "axios";
-import { AuthenticationOutput } from "../../types/api.types";
-import { apiAddress } from "../../api";
-import { useAuth } from "../../context/useAuthContext";
+import { AuthenticationInput } from "../../types/api.types";
+import { authenticateUser } from "../../app/auth/authSlice";
 
 export const signinApi = "/auth/authenticate";
 
 export const SigninContainer = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const { setUser } = useAuth();
+  const dispatch = useDispatch();
 
   const isValidEmail = (validationEmail: string): boolean =>
     validator.isEmail(email);
@@ -26,16 +25,8 @@ export const SigninContainer = () => {
     !validator.isEmpty(validationPassword);
 
   const onSubmitDispatch = async (email: string, password: string) => {
-    const response = await axios.post<AuthenticationOutput>(
-      apiAddress.AUTHENTICATE,
-      {
-        name: email,
-        password,
-      }
-    );
-    if (response.data.ok && response.data.token && response.data.userId) {
-      setUser({ id: response.data.userId, token: response.data.token });
-    }
+    const user: AuthenticationInput = { name: email, password };
+    dispatch(authenticateUser(user));
   };
 
   return (
