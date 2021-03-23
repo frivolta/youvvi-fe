@@ -80,6 +80,6 @@ export const authSlice = createSlice({
     }
 })
 
-
+export const {setLogOut, setAuthManually} = authSlice.actions 
 export const authSelector = (state: RootState) => state.auth
 export default authSlice.reducer

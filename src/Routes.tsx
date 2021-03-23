@@ -1,5 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
+import { PrivateRoute } from "./components/PrivateRoute";
 import { ResumePreviewPage } from "./pages/resumePreviewPage";
 import { SigninPage } from "./pages/signin";
 
@@ -9,7 +10,7 @@ export const Routes: React.FC = () => {
     <>
       <Route exact path="/" component={SigninPage} />
       <Route exact path="/signin" component={SigninPage} />
-      <Route exact path="/preview" component={ResumePreviewPage} />
+      <PrivateRoute exact path="/preview" component={ResumePreviewPage} />
     </>
   );
 };
