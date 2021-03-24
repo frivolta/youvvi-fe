@@ -272,7 +272,7 @@ export const commonStyles = {
   },
   blockTitleDescription: {
     marginLeft: 20,
-    maxWidth: "82%",
+    maxWidth: "77%",
     alignSelf: "flex-end",
   },
   blockTitleIconHalf: {
@@ -285,6 +285,7 @@ export const commonStyles = {
   },
   blockTitleDateHalf: {
     marginLeft: 10,
+    width: "20%",
   },
   blockTitleDescriptionHalf: {
     marginLeft: 20,
@@ -312,7 +313,7 @@ const educationStyle = {
     position: "relative",
     flexDirection: "column",
     flexWrap: "wrap",
-    height: "25%",
+    height: "15%",
   },
   educationTitle: {
     //@ts-ignore
@@ -337,14 +338,14 @@ export const styles = StyleSheet.create({
     position: "relative",
     flexDirection: "column",
     flexWrap: "wrap",
-    height: "25%",
+    maxHeight: "35%",
   },
   skillsTitle: {
     //@ts-ignore
     overflow: "hidden",
     position: "relative",
     flexDirection: "column",
-    marginTop: 60,
+    marginTop: 20,
   },
   blockDescriptionHalf: {
     display: "flex",

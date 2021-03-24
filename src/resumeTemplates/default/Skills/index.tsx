@@ -10,8 +10,6 @@ interface Props {
 
 export const Skills = ({ skillset }: Props) => {
   const skillsetElement = (skillset: Skillset) => {
-    const parsedSkills = JSON.parse(skillset.skills) as string[];
-
     return (
       <View style={styles.blockDescriptionHalf} key={skillset.id}>
         <View style={styles.blockTitleIconCircle}>
@@ -21,8 +19,8 @@ export const Skills = ({ skillset }: Props) => {
           <Text style={styles.blockDescriptionTitleSpaced}>
             {skillset.title}
           </Text>
-          {parsedSkills.length > 0
-            ? parsedSkills.map((skill, i) => (
+          {skillset.skills.length > 0
+            ? skillset.skills.map((skill, i) => (
                 <Text
                   key={`${skillset.id}${i}${skill}`}
                   style={styles.paragraphTitleSpaced}
@@ -48,11 +46,9 @@ export const Skills = ({ skillset }: Props) => {
           </View>
         </View>
       </View>
-      {skillset.length > 0 ? (
-        <View style={styles.skills}>
-          {skillset.map((s) => skillsetElement(s))}
-        </View>
-      ) : null}
+      <View style={styles.skills}>
+        {skillset.length > 0 ? skillset.map((s) => skillsetElement(s)) : null}
+      </View>
     </>
   );
 };

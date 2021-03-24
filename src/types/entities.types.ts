@@ -51,5 +51,5 @@ export interface Education extends CoreEntity{
 
 export interface Skillset extends CoreEntity{
     title: string;
-    skills: string;
+    skills: string[];
 }

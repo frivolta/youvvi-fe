@@ -34,7 +34,7 @@ export const Education = ({ educations }: EducationComponent) => {
             <Image src={PlusIcon} style={styles.blockIcon} />
           </View>
           <View style={styles.blockTitleText}>
-            <Text style={styles.title}>EDUCATION</Text>
+            <Text style={styles.title}>EDUCAZIONE</Text>
           </View>
         </View>
       </View>
