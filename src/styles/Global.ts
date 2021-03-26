@@ -8,6 +8,8 @@ ${normalize()}
 html {
   box-sizing: border-box;
   font-size: 16px;
+  min-height:100%;
+    height: 100vh;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -16,12 +18,17 @@ body {
   margin: 0;
   font-family: ${primaryFont};
   line-height: 22px;
+  min-height:100%;
+  height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #ffffff;
 }
 main {
   width: 90%;
   margin: 0 auto;
+}
+#root{
+  min-height:100%;
+    height: 100vh;
 }
 `;
