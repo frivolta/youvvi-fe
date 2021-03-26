@@ -3,14 +3,12 @@ import validator from "validator";
 import { useDispatch } from "react-redux";
 
 import { Link } from "react-router-dom";
-import { Card } from "../../components/Card/Card";
-import { Input } from "../../components/Input/Input";
-import { Button } from "../../components/Button/Button";
-import { Label } from "../../components/Label/Label";
+import { Button } from "../../components/Button";
 import { Heading, variation } from "../../components/Heading/Heading";
 import { ErrorMessage } from "../../components/ErrorMessage/ErrorMessage";
 import { AuthenticationInput } from "../../types/api.types";
 import { authenticateUser } from "../../app/auth/authSlice";
+import { Card, Input, Label } from "../../components";
 
 export const signinApi = "/auth/authenticate";
 
