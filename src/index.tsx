@@ -1,30 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import reportWebVitals from "./reportWebVitals";
-import { createGlobalStyle } from "styled-components";
 import { Switch, BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./context/useAuthContext";
 import { debugContextDevtool } from "react-context-devtool";
 import { Provider } from "react-redux";
 import store from "./app/store";
 import { App } from "./App";
+import { ThemeProvider } from "styled-components";
+import { defaultTheme, GlobalStyle } from "./styles";
 
-const GlobalStyle = createGlobalStyle`
-  html{
-    min-height:100%;/* make sure it is at least as tall as the viewport */
-    position:relative;
-  }
-  body, #root {
-    min-height:100%;
-    height: 100vh;
-  }
-`;
 
 const container = document.getElementById("root");
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+    <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />
       <BrowserRouter>
         <Switch>
@@ -33,6 +25,7 @@ ReactDOM.render(
           </AuthProvider>
         </Switch>
       </BrowserRouter>
+      </ThemeProvider>
     </Provider>
   </React.StrictMode>,
   container
