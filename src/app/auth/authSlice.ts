@@ -3,6 +3,7 @@ import axios from 'axios'
 import { apiAddress } from '../../api'
 import { AuthenticationInput, AuthenticationOutput } from '../../types/api.types'
 import { CurrentUser, QueryError } from '../../types/entities.types'
+import { toasterSuccess } from '../../utils/toast'
 import setAuthToken from '../helpers/auth'
 import { RootState } from '../store'
 
@@ -34,9 +35,9 @@ export const authenticateUser = createAsyncThunk<CurrentUser, AuthenticationInpu
             setAuthToken(token)
             return {userId, token} as CurrentUser
         }
-        return thunkApi.rejectWithValue({error: response.data.error || 'Cannot login'})
+        throw new Error()
     }catch(e){
-        return thunkApi.rejectWithValue({error: e.message || 'Cannot login, network error'})
+        return thunkApi.rejectWithValue({error: e.response.data.message})
     }
 })
 
@@ -66,10 +67,12 @@ export const authSlice = createSlice({
             state.currentUser = payload
             state.error = null
             state.isLoading = false
+            toasterSuccess('Successfully logged in');
         })
         builder.addCase(authenticateUser.rejected, (state, {payload})=>{
             state.isAuth = false
             state.isLoading = false
+            console.log(payload)
             state.error = payload?.error || 'Cannot login'
         })
         builder.addCase(authenticateUser.pending, (state)=>{

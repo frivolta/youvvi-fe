@@ -8,7 +8,7 @@ import { SigninPage } from "./pages/signin";
 export const Routes: React.FC = () => {
   return (
     <>
-      <Route exact path="/" component={SigninPage} />
+      <PrivateRoute exact path="/" component={ResumePreviewPage} />
       <Route exact path="/signin" component={SigninPage} />
       <PrivateRoute exact path="/preview" component={ResumePreviewPage} />
     </>

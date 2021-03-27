@@ -9,15 +9,27 @@ import store from "./app/store";
 import { App } from "./App";
 import { ThemeProvider } from "styled-components";
 import { defaultTheme, GlobalStyle } from "./styles";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 
 const container = document.getElementById("root");
+
+// Toaster configuration
+toast.configure({
+  className: "Toastify__toast-container",
+  draggable: true,
+  draggablePercent: 60,
+  autoClose: 2000,
+});
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />
+      <ToastContainer />
       <BrowserRouter>
         <Switch>
           <AuthProvider>

@@ -7,7 +7,6 @@ export const StyledErrorCardWrapper = styled.div`
   align-items: center;
   width: 100%;
   background-color: ${(props) => props.theme.colors.errorBackground};
-  padding: ${(props) => props.theme.space.l};
   margin: ${(props) => props.theme.space.xxl} 0;
   border-radius: ${(props) => props.theme.borderRadius.base};
 `;
