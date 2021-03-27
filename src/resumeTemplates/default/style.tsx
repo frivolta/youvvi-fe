@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { StyleSheet, Font } from "@react-pdf/renderer";
 import AllerRegular from "./fonts/Aller/Aller_Rg.ttf";
 import AllerBold from "./fonts/Aller/Aller_Bd.ttf";

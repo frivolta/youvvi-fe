@@ -1,7 +1,7 @@
 import styled from "styled-components/macro";
 import { Header } from "../Header";
 import { Footer } from "../Footer";
-import { mediaQueries, headerHeight, footerHeight } from "../../../styles";
+import { mediaQueries, headerHeight, footerHeight } from "../../styles";
 
 export const GridContainer = styled.div`
   display: grid;

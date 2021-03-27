@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { User } from "firebase";
+import { CurrentUser } from "../../types/entities.types";
 import brandLogo from "./assets/images/brand.svg";
 import { HeaderMobile, HeaderUser } from "./components";
 import {
@@ -13,7 +13,7 @@ import {
 interface Props {
   isAuthorized: boolean;
   sectionName: string;
-  user?: User;
+  user?: CurrentUser;
   fixedTop?: boolean;
 }
 

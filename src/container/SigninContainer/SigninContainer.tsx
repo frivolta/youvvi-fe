@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { Button } from "../../components/Button";
 import { Heading, variation } from "../../components/Heading/Heading";
-import { ErrorMessage } from "../../components/ErrorMessage/ErrorMessage";
 import { AuthenticationInput } from "../../types/api.types";
 import { authenticateUser } from "../../app/auth/authSlice";
 import { Card, Input, Label } from "../../components";
@@ -55,7 +54,7 @@ export const SigninContainer = () => {
           disabled={!isValidPassword(password) || !isValidEmail(email)}
         />
         {false && (
-          <ErrorMessage data-testid="ErrorMessage">error message</ErrorMessage>
+         <p>error message</p>
         )}
         <Label>
           Already have an account? <Link to="/signup">Sign up now.</Link>

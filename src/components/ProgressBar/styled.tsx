@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { H5 } from "../../../styles";
+import { H5 } from "../../styles";
 
 interface ProgressBarProps {
   background: string;

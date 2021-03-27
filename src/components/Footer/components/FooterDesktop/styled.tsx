@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mediaQueries } from "../../../../../styles";
+import { mediaQueries } from "../../../../styles";
 
 export const StyledFooterDesktop = styled.div`
   display: flex;

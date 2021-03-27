@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mediaQueries, spaceUnit } from "../../../styles";
+import { mediaQueries, spaceUnit } from "../../styles";
 
 interface StyledCardProps {
   height?: string;

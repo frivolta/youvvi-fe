@@ -1,10 +1,11 @@
 import React from "react";
+import { AuthState } from "../../app/auth/authSlice";
+import { CurrentUser } from "../../types/entities.types";
 import { GridContainer, GridHeader, GridMain, GridFooter } from "./styled";
-import { User } from "firebase";
 
 interface Props {
   children: React.ReactNode;
-  user: User;
+  user: CurrentUser;
   sectionName: string;
 }
 

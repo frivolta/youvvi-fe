@@ -1,6 +1,6 @@
 import React from "react";
 import { useTheme } from "styled-components";
-import { H1 } from "../../../../../styles";
+import { H1 } from "../../../../styles";
 import {
   HeaderMobileTitle,
   HeaderMobileIcons,
@@ -8,7 +8,7 @@ import {
 } from "./styled";
 import { IoMdSwitch } from "react-icons/io";
 import { Link } from "react-router-dom";
-import { Theme } from "react-select/src/types";
+import { Theme } from "../../../../styles/types";
 
 interface Props {
   sectionName: string;

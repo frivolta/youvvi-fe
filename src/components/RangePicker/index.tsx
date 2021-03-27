@@ -1,6 +1,6 @@
 import React from "react";
 import { useTheme } from "styled-components/macro";
-import { Theme } from "../../../styles/types";
+import { Theme } from "../../styles/types";
 import {
   StyledInputRange,
   StyledInputRangeValue,

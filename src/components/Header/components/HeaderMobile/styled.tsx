@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mediaQueries } from "../../../../../styles";
+import { mediaQueries } from "../../../../styles";
 
 export const HeaderMobileContainer = styled.div`
   width: 100%;

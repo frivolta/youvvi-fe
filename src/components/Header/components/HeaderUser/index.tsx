@@ -1,11 +1,11 @@
-import React from "react";
-import { User } from "firebase";
+import { AuthState } from "../../../../app/auth/authSlice";
+import { CurrentUser } from "../../../../types/entities.types";
 import { StyledHeaderUser } from "./styled";
 
 interface Props {
-  user: User;
+  user: CurrentUser;
 }
 
 export const HeaderUser = ({ user }: Props) => {
-  return <StyledHeaderUser>{user.email}</StyledHeaderUser>;
+  return <StyledHeaderUser>{user.userId}</StyledHeaderUser>;
 };

@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-import { Text } from "../../../styles";
+import { Text } from "../../styles";
 
 export const StyledErrorCardWrapper = styled.div`
   display: flex;

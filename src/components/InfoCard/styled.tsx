@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { typeScale } from "../../../styles";
+import { typeScale } from "../../styles";
 
 export const InfoCardWrapper = styled.div`
   width: 100%;

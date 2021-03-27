@@ -16,7 +16,7 @@ export const BottomNotes = ({ bottomNotes }: Props) => {
       <View style={styles.bottomNotesContainer}>
         {bottomNotes
           ? bottomNotes.map((bottomNote, i) => (
-              <View style={styles.bottomNote}>
+              <View style={styles.bottomNote} key={i}>
                 <Text style={styles.paragraphTitle} key={bottomNote + i}>
                   {bottomNote}
                 </Text>

@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-import { H3 } from "../../../styles";
+import { H3 } from "../../styles";
 
 interface StyledInputRangeProps {
   backgroundColor: string;
