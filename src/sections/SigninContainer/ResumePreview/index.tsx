@@ -1,12 +1,12 @@
 import { PDFViewer } from "@react-pdf/renderer";
 import styled from "styled-components";
-import { DefaultTemplate } from "../../resumeTemplates";
+import { DefaultTemplate } from "../../../resumeTemplates";
 import {
   Education,
   Profile,
   Skillset,
   WorkingExperience,
-} from "../../types/entities.types";
+} from "../../../types/entities.types";
 
 interface Props {
   education: Education[];

@@ -3,15 +3,16 @@ import validator from "validator";
 import { useDispatch } from "react-redux";
 
 import { Link } from "react-router-dom";
-import { Button } from "../../components/Button";
-import { Heading, variation } from "../../components/Heading/Heading";
-import { AuthenticationInput } from "../../types/api.types";
-import { authenticateUser } from "../../app/auth/authSlice";
-import { Card, Input, Label } from "../../components";
+import { Button } from "../../../components/Button";
+import { AuthenticationInput } from "../../../types/api.types";
+import { authenticateUser } from "../../../app/auth/authSlice";
+import { Card, FullPageLayout, Input, Label } from "../../../components";
+import { LogInCardSpan } from "./styled";
+import { H1 } from "../../../styles";
 
 export const signinApi = "/auth/authenticate";
 
-export const SigninContainer = () => {
+export const Signin = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const dispatch = useDispatch();
@@ -27,12 +28,12 @@ export const SigninContainer = () => {
   };
 
   return (
-    <div className="SignupContainer" data-testid="SignupContainer">
+    <FullPageLayout>
       <Card>
-        <Heading variation={variation.h1}>
-          Use your credentials <br />
-          and <span className="primary-color">Login.</span>
-        </Heading>
+      <H1>
+          Fill out the form <br />
+          and <LogInCardSpan>Sign In</LogInCardSpan>.
+        </H1>
         <Input
           name="email"
           placeholder="E-mail"
@@ -57,9 +58,9 @@ export const SigninContainer = () => {
          <p>error message</p>
         )}
         <Label>
-          Already have an account? <Link to="/signup">Sign up now.</Link>
+          Account creation suspended.
         </Label>
       </Card>
-    </div>
+    </FullPageLayout>
   );
 };
