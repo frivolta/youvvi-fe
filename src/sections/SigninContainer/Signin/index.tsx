@@ -2,7 +2,6 @@ import React from "react";
 import validator from "validator";
 import { useDispatch } from "react-redux";
 
-import { Link } from "react-router-dom";
 import { Button } from "../../../components/Button";
 import { AuthenticationInput } from "../../../types/api.types";
 import { authenticateUser } from "../../../app/auth/authSlice";
