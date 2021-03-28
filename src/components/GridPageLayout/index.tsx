@@ -1,6 +1,13 @@
 import React from "react";
 import { CurrentUser } from "../../types/entities.types";
-import { GridContainer, GridHeader, GridMain, GridFooter } from "./styled";
+import { SideLink, Sidenav } from "../Sidenav";
+import {
+  GridContainer,
+  GridHeader,
+  GridMain,
+  GridFooter,
+  GridSidebar,
+} from "./styled";
 
 interface Props {
   children: React.ReactNode;
@@ -9,12 +16,22 @@ interface Props {
   footerContent: string;
 }
 
-export const GridPageLayout = ({ children, user, sectionName, footerContent }: Props) => {
+export const GridPageLayout = ({
+  children,
+  user,
+  sectionName,
+  footerContent,
+}: Props) => {
   return (
     <GridContainer>
       <GridHeader isAuthorized={!!user} user={user} sectionName={sectionName} />
+      <GridSidebar>
+        <Sidenav>
+          <SideLink label="bio" destination="/bio" />
+        </Sidenav>
+      </GridSidebar>
       <GridMain>{children}</GridMain>
-      <GridFooter footerContent={footerContent}/>
+      <GridFooter footerContent={footerContent} />
     </GridContainer>
   );
 };

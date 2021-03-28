@@ -5,9 +5,9 @@ import { mediaQueries, headerHeight, footerHeight } from "../../styles";
 
 export const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 260px 1fr;
   grid-template-rows: ${headerHeight}px 1fr 50px;
-  grid-template-areas: "header" "main" "footer";
+  grid-template-areas: "header header" "sidebar main" "sidebar footer";
   height: 100vh;
   overflow: hidden;
   width: 100%;
@@ -25,6 +25,10 @@ export const GridContainer = styled.div`
 export const GridHeader = styled(Header)`
   grid-area: header;
 `;
+
+export const GridSidebar = styled.div`
+grid-area: sidebar;
+  background-color: ${(props) => props.theme.colors.componentBackground};`
 
 export const GridMain = styled.div`
   grid-area: main;
