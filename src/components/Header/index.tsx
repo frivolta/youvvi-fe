@@ -21,10 +21,8 @@ export const Header: React.FC<Props> = ({ fixedTop, user, sectionName }) => {
   const appMenuElement = user ? (
     <>
       <HeaderMenu data-testid="HeaderMenu">
-        <Link to="/dashboard">Dashboard</Link>
-        <Link to="/expenses">Expenses</Link>
-        <Link to="/budget-settings">Budget Settings</Link>
-        <Link to="/categories">Categories</Link>
+        <Link to="/edit">Resume setup</Link>
+        <Link to="/preview">Preview</Link>
       </HeaderMenu>
       <HeaderMobile data-testid="HeaderMobile" sectionName={sectionName} />
     </>

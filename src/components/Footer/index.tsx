@@ -2,12 +2,16 @@ import React from "react";
 import { FooterDesktop, FooterMobile } from "./components";
 import { FooterContainer, FooterWrapper } from "./styled";
 
-export const Footer = () => {
+interface Props {
+  footerContent: React.ReactChild
+}
+
+export const Footer = ({footerContent}:Props) => {
   return (
     <FooterContainer>
       <FooterWrapper>
-        <FooterDesktop />
-        <FooterMobile />
+        <FooterDesktop footerContent={footerContent}/>
+        <FooterMobile/>
       </FooterWrapper>
     </FooterContainer>
   );

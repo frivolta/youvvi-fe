@@ -1,5 +1,4 @@
 import React from "react";
-import { AuthState } from "../../app/auth/authSlice";
 import { CurrentUser } from "../../types/entities.types";
 import { GridContainer, GridHeader, GridMain, GridFooter } from "./styled";
 
@@ -7,14 +6,15 @@ interface Props {
   children: React.ReactNode;
   user: CurrentUser;
   sectionName: string;
+  footerContent: string;
 }
 
-export const GridPageLayout = ({ children, user, sectionName }: Props) => {
+export const GridPageLayout = ({ children, user, sectionName, footerContent }: Props) => {
   return (
     <GridContainer>
       <GridHeader isAuthorized={!!user} user={user} sectionName={sectionName} />
       <GridMain>{children}</GridMain>
-      <GridFooter />
+      <GridFooter footerContent={footerContent}/>
     </GridContainer>
   );
 };
