@@ -3,7 +3,7 @@ import { mediaQueries } from "../../../../styles";
 
 export const StyledFooterMobile = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
   overflow: hidden;

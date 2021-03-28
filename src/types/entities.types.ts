@@ -11,6 +11,7 @@ export interface QueryError {
 export interface CurrentUser {
     token: string;
     userId: string;
+    email:string;
 }
 
 export interface CompleteProfile {

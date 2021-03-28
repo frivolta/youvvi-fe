@@ -30,10 +30,10 @@ export const authenticateUser = createAsyncThunk<CurrentUser, AuthenticationInpu
           })
 
         if(response.data.ok && response.data.userId && response.data.token){
-            const {userId, token} = response.data
+            const {userId, token, email} = response.data
             localStorage.setItem('yuvviToken', token);
             setAuthToken(token)
-            return {userId, token} as CurrentUser
+            return {userId, token, email} as CurrentUser
         }
         throw new Error()
     }catch(e){

@@ -18,8 +18,7 @@ export const HeaderWrapper = styled.div<HeaderWrapperProps>`
   grid-area: header;
   font-size: ${(props) => props.theme.fonts.header.size};
   font-weight: ${(props) => props.theme.fonts.header.weight};
-  background-color: ${(props) => props.theme.colors.componentBackground};
-  border-bottom: 1px solid ${(props) => props.theme.colors.borderColor};
+  background-color: ${(props) => props.theme.colors.primaryActive};
   color: ${(props) => props.theme.colors.lightText};
   display: flex;
   justify-content: space-between;
@@ -55,8 +54,8 @@ export const HeaderMenu = styled.div`
   a {
     color: ${(props) => props.theme.colors.lightText};
     text-decoration: none;
-    opacity: 0.3;
-    transition: opacity 0.3s;
+    opacity: 0.9;
+    transition: opacity 0.9s;
     padding: 0 ${(props) => props.theme.space.m};
     :hover {
       opacity: 1;

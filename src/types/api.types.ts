@@ -13,6 +13,7 @@ export interface AuthenticationInput{
 export interface AuthenticationOutput extends QueryOutput{
     token?: string;
     userId?:string;
+    email?:string;
 }
 
 export interface EducationOutput extends QueryOutput{

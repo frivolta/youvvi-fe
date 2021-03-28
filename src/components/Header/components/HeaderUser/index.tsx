@@ -7,5 +7,5 @@ interface Props {
 }
 
 export const HeaderUser = ({ user }: Props) => {
-  return <StyledHeaderUser>{user.userId}</StyledHeaderUser>;
+  return <StyledHeaderUser>{user.email}</StyledHeaderUser>;
 };

@@ -6,6 +6,7 @@ import { AccessTokenPayload } from "./types/common.types";
 import { useDispatch } from "react-redux";
 import { setAuthManually, setLogOut } from "./app/auth/authSlice";
 import { CurrentUser } from "./types/entities.types";
+import { LoadingScreen } from "./components";
 
 //Routes components
 export const App: React.FC = () => {
@@ -25,6 +26,7 @@ export const App: React.FC = () => {
       const currentUser: CurrentUser = {
         token: localStorage.yuvviToken,
         userId: decoded.sub,
+        email: decoded.email
       };
       dispatch(setAuthManually(currentUser));
     } else {
@@ -34,7 +36,8 @@ export const App: React.FC = () => {
   };
 
   if (isAppLoading) {
-    return <p>Loading...</p>;
+    return <LoadingScreen loadingText="App loading..."/>;
   }
+
   return <Routes />;
 };

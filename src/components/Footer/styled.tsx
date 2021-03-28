@@ -7,8 +7,8 @@ export const FooterWrapper = styled.div`
   font-weight: ${(props) => props.theme.fonts.header.weight};
   background-color: ${(props) => props.theme.colors.componentBackground};
   border-top: 1px solid ${(props) => props.theme.colors.border};
-  padding: ${(props) => props.theme.space.m};
-  color: ${(props) => props.theme.colors.lightText};
+  padding: ${(props) => props.theme.space.xl};
+  color: ${(props) => props.theme.colors.primary};
   display: flex;
   justify-content: flex-end;
   align-items: center;
