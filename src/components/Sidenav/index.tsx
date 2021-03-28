@@ -1,5 +1,6 @@
 import React, { isValidElement } from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { SidenavLinkWrapper, SidenavWrapper } from "./styled";
 
 //https://blog.martindidiego.com/compound-components-typescript/
 //https://blog.diondreedwards.com/react-compound-component-using-typescript
@@ -25,7 +26,7 @@ interface SidenavComposition {
 }
 
 const Sidenav: React.FC<SidenavComposition> = ({ children }) => {
-  const [activeTab, setActiveTab] = React.useState("");
+  const [activeTab, setActiveTab] = React.useState("/bio");
 
   const newChildren = React.Children.map(
     children,
@@ -39,7 +40,7 @@ const Sidenav: React.FC<SidenavComposition> = ({ children }) => {
 
   return (
     <SidenavContext.Provider value={{ activeTab, setActiveTab }}>
-      {newChildren}
+      <SidenavWrapper>{newChildren}</SidenavWrapper>
     </SidenavContext.Provider>
   );
 };
@@ -51,13 +52,14 @@ interface SideLinkProps {
 
 const SideLink: React.FC<SideLinkProps> = (props) => {
   const { activeTab, setActiveTab } = React.useContext(SidenavContext);
+  const history = useHistory();
+  const onClick = () => {
+    setActiveTab(props.destination);
+    history.push(props.destination);
+  };
 
   return (
-    <div className={activeTab === props.label ? "isActive" : "notActive"}>
-      <div onClick={() => setActiveTab(props.label)}>
-        {props.label}
-      </div>
-    </div>
+    <SidenavLinkWrapper onClick={onClick} isActive={activeTab===props.destination}>{props.label}</SidenavLinkWrapper>
   );
 };
 

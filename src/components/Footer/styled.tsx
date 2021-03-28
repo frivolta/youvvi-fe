@@ -5,7 +5,6 @@ export const FooterWrapper = styled.div`
   width: 100%;
   font-size: ${(props) => props.theme.fonts.header.size};
   font-weight: ${(props) => props.theme.fonts.header.weight};
-  background-color: ${(props) => props.theme.colors.componentBackground};
   border-top: 1px solid ${(props) => props.theme.colors.border};
   padding: ${(props) => props.theme.space.xl};
   color: ${(props) => props.theme.colors.primary};

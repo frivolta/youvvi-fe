@@ -54,8 +54,8 @@ export const HeaderMenu = styled.div`
   a {
     color: ${(props) => props.theme.colors.lightText};
     text-decoration: none;
-    opacity: 0.9;
-    transition: opacity 0.9s;
+    opacity: 0.7;
+    transition: opacity 0.7s;
     padding: 0 ${(props) => props.theme.space.m};
     :hover {
       opacity: 1;
