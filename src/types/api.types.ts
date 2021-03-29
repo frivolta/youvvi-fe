@@ -1,4 +1,4 @@
-import { CompleteProfile, Education } from "./entities.types";
+import { CompleteProfile, Education, Profile } from "./entities.types";
 
 export interface QueryOutput {
     ok: boolean;
@@ -24,3 +24,6 @@ export interface EducationOutput extends QueryOutput{
 export interface GetCompleteUserProfileOutput extends QueryOutput{
     user?: CompleteProfile;
 }
+
+// Profile update output
+export type UpdateUserProfileGeneralInfo = Profile

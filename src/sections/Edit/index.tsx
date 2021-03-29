@@ -6,7 +6,7 @@ import { GridPageLayout, LoadingScreen } from "../../components";
 import { PageWrapper } from "../../components/PageWrapper";
 
 interface Props {
-  children: React.ReactChild
+  children: React.ReactChild | React.ReactChild[]
 }
 
 export const Edit: React.FC<Props> = ({children}) => {

@@ -9,7 +9,7 @@ export const GridContainer = styled.div`
   grid-template-rows: ${headerHeight}px 1fr 50px;
   grid-template-areas: "header header" "sidebar main" "sidebar footer";
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
   width: 100%;
   background-color: ${(props) => props.theme.colors.background};
   @media ${mediaQueries.tabletMax} {

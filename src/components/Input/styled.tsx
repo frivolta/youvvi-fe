@@ -25,7 +25,8 @@ export const StyledInputField = styled.input<StyledInputFieldProps>`
         : props.theme.colors.placeholder};
   color: ${(props) => props.theme.colors.lightText};
   outline: none;
-  font-weight: 300;
+  font-weight: 500;
+  letter-spacing: 1px;
   ::placeholder {
     color: ${(props) => props.theme.colors.placeholder};
   }
