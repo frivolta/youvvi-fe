@@ -7,6 +7,8 @@ import React from "react";
 
 type Props = Pick<Profile, "bottomNotes">;
 
+
+
 // Form data interface
 interface UpdateBottomNotesFormInput {
   note:string;
@@ -14,7 +16,7 @@ interface UpdateBottomNotesFormInput {
 
 // General info form schema
 const BottomNotesSchema = Yup.object().shape({
-  note: Yup.string().min(2, "Too short").max(500, "Too long").required('You need to insert a note'),
+  note: Yup.string().min(2, "Too short").max(500, "Too long"),
 });
 
 export const BottomNotesForm = ({bottomNotes}: Props) => {

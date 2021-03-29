@@ -1,9 +1,11 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { authSelector } from "../../app/auth/authSlice";
 import setAuthToken from "../../app/helpers/auth";
+import { updateProfile } from "../../app/profile/profileSlice";
 import { GridPageLayout, LoadingScreen } from "../../components";
 import { PageWrapper } from "../../components/PageWrapper";
+import { CompleteProfile } from "../../types/entities.types";
 
 interface Props {
   children: React.ReactChild | React.ReactChild[]
@@ -12,7 +14,6 @@ interface Props {
 export const Edit: React.FC<Props> = ({children}) => {
   const { currentUser, isAuth, isLoading } = useSelector(authSelector);
   const history = useHistory();
-
   const loadingElement = (
     <LoadingScreen loadingText="Loading user..." inPageLoader />
   );

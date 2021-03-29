@@ -6,6 +6,7 @@ import * as Yup from "yup";
 
 type Props = Pick<Profile, "name" | "photoUrl" | "workTitle" | "biography">;
 
+
 // Form data interface
 interface UpdateGeneralInfoFormInput {
   name: string;
