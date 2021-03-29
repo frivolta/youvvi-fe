@@ -27,7 +27,7 @@ export const GridPageLayout = ({
       <GridHeader isAuthorized={!!user} user={user} sectionName={sectionName} />
       <GridSidebar>
         <Sidenav>
-          <SideLink label="General informations" destination="/bio" />
+          <SideLink label="General informations" destination="/general" />
           <SideLink label="Education" destination="/education" />
           <SideLink label="Working experience" destination="/working-experience" />
           <SideLink label="Personal skills" destination="/personal-skills" />

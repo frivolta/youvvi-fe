@@ -5,6 +5,11 @@ import { SidenavLinkWrapper, SidenavWrapper } from "./styled";
 //https://blog.martindidiego.com/compound-components-typescript/
 //https://blog.diondreedwards.com/react-compound-component-using-typescript
 
+const getActivePath = (location: string): string =>{
+  const activeLocation =location.split("/")
+  return `/${activeLocation[activeLocation.length-1]}`
+}
+
 interface SidenavTabsState {
   activeTab: string;
   setActiveTab: (label: string) => void;
@@ -26,7 +31,8 @@ interface SidenavComposition {
 }
 
 const Sidenav: React.FC<SidenavComposition> = ({ children }) => {
-  const [activeTab, setActiveTab] = React.useState("/bio");
+  const history = useHistory()
+  const [activeTab, setActiveTab] = React.useState(getActivePath(history.location.pathname));
 
   const newChildren = React.Children.map(
     children,
