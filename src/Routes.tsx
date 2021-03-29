@@ -12,8 +12,7 @@ export const Routes: React.FC = () => {
       <PrivateRoute exact path="/" component={ResumePreviewPage} />
       <Route exact path="/signin" component={SigninPage} />
       <PrivateRoute exact path="/preview" component={ResumePreviewPage} />
-      <PrivateRoute exact path="/edit/" component={EditPage} />
-      <PrivateRoute exact path="/edit/general" component={EditPage} />
+      <PrivateRoute exact path="/general" component={EditPage} />
     </>
   );
 };
