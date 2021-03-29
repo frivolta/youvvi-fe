@@ -32,9 +32,14 @@ grid-area: sidebar;
 
 export const GridMain = styled.div`
   grid-area: main;
+  display:flex;
+  flex-direction:column;
+  justify-content: flex-start;
+  align-items: center;
   background-color: ${(props) => props.theme.pageBackground};
   padding: 0 ${(props) => props.theme.space.xl};
   margin-bottom: ${footerHeight * 1.5}px;
+  margin-top: ${(props) => props.theme.space.xxl};
 `;
 export const GridFooter = styled(Footer)`
   grid-area: footer;

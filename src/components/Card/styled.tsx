@@ -12,7 +12,6 @@ interface StyledCardContentProps {
 }
 
 export const StyledCard = styled.div<StyledCardProps>`
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,11 +23,9 @@ export const StyledCard = styled.div<StyledCardProps>`
   box-shadow: ${(props) => props.theme.shadows.default};
   border-radius: ${(props) => props.theme.borderRadius.base};
   width: 100%;
-  height: ${(props) => (props.height ? props.height : "100%")};
   color: ${(props) => props.theme.colors.lightText};
   @media ${mediaQueries.tablet} {
     min-width: 512px;
-    height: auto;
     max-width: 900px;
   }
 `;

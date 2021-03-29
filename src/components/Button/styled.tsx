@@ -25,7 +25,6 @@ export const StyledButton = styled.button<ButtonProps>`
     props.secondary
       ? props.theme.colors.primary
       : props.theme.colors.lightText};
-  width: ${(props) => (props.width ? props.width : `100%`)};
   padding: ${(props) => props.theme.space.xl};
   margin: ${(props) =>
     props.margin ? props.margin : `${props.theme.space.xl} 0`};
