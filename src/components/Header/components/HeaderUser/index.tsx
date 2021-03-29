@@ -1,4 +1,3 @@
-import { AuthState } from "../../../../app/auth/authSlice";
 import { CurrentUser } from "../../../../types/entities.types";
 import { StyledHeaderUser } from "./styled";
 

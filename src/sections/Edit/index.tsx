@@ -5,7 +5,11 @@ import setAuthToken from "../../app/helpers/auth";
 import { GridPageLayout, LoadingScreen } from "../../components";
 import { PageWrapper } from "../../components/PageWrapper";
 
-export const Edit = () => {
+interface Props {
+  children: React.ReactChild
+}
+
+export const Edit: React.FC<Props> = ({children}) => {
   const { currentUser, isAuth, isLoading } = useSelector(authSelector);
   const history = useHistory();
 
@@ -27,7 +31,7 @@ export const Edit = () => {
           sectionName="Dashboard"
           footerContent={footerContent}
         >
-          layout
+        {children}
         </GridPageLayout>
       ) : (
         loadingElement

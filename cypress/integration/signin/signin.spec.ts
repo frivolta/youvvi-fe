@@ -104,6 +104,6 @@ describe('Signin', () => {
                 window.localStorage.setItem('yuvviToken', testUser.validToken);
             }
         })
-        cy.location("pathname").should("eq", "/");
+        cy.location("pathname").should("eq", "/general");
     })
 })

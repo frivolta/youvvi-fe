@@ -30,7 +30,7 @@ export const Signin = () => {
   };
 
   if(isAuth){
-    history.push('/')
+    history.push('/general')
   }
 
   return (

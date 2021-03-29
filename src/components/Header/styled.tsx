@@ -35,7 +35,6 @@ export const HeaderWrapper = styled.div<HeaderWrapperProps>`
 export const HeaderContainer = styled.div`
   display: flex;
   padding: ${(props) => props.theme.space.xl};
-
   justify-content: space-between;
   align-items: center;
   width: 100%;
