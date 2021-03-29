@@ -27,7 +27,7 @@ export const SidenavLinkWrapper = styled.div<SidenavLinkWrapperProps>`
   &:hover{
       cursor:pointer;
       box-shadow: ${(props) => props.theme.shadows.default};
-      background-color: ${(props) => props.theme.colors.componentHover};
+      background-color: ${(props) => props.isActive ? props.theme.colors.primaryActive : props.theme.colors.componentHover};
       transition: all .3s;
   }
 `;
