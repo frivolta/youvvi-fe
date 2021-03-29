@@ -29,7 +29,7 @@ export const GridPageLayout = ({
         <Sidenav>
           <SideLink label="General informations" destination="/general" />
           <SideLink label="Education" destination="/education" />
-          <SideLink label="Working experience" destination="/working-experience" />
+          <SideLink label="Working experience" destination="/working-experiences" />
           <SideLink label="Personal skills" destination="/personal-skills" />
         </Sidenav>
       </GridSidebar>

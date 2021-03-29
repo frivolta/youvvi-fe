@@ -71,7 +71,7 @@ describe('Signin', () => {
         .click()
         .get('[data-testid="Spinner"]');
         // Wait for signin request then check path, localStorage and toaster message
-        cy.wait('@signinRequest').should(()=>  expect(localStorage.getItem('yuvviToken')).to.eq('jwtTokenFromCognito')).location("pathname").should("eq", "/")
+        cy.wait('@signinRequest').should(()=>  expect(localStorage.getItem('yuvviToken')).to.eq('jwtTokenFromCognito')).location("pathname").should("eq", "/general")
         cy.contains("Successfully logged in")
     })
 
