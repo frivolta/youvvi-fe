@@ -12,6 +12,7 @@ interface UpdateContactInfoFormInput {
 }
 
 interface Props {
+  handleUpdateProfile: (updatedInformations: Partial<Profile>) => void;
   email?: string;
   phone?: string;
   website?: string;
@@ -19,18 +20,19 @@ interface Props {
 
 // General info form schema
 const ContactInfoSchema = Yup.object().shape({
-  email: Yup.string().email('Insert a valid email'),
-  phone: Yup.string().min(2, "Too short").max(20, "Too long"),
+  email: Yup.string().email('Insert a valid email').nullable(),
+  phone: Yup.string().min(2, "Too short").max(20, "Too long").nullable(),
   website: Yup.string()
   .matches(
     /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
     "Enter a valid url"
-  )
+  ).nullable()
 });
 
 export const ContactInfoForm = ({
-  email, website, phone
+  email, website, phone, handleUpdateProfile
 }: Props) => {
+
   const formik = useFormik<UpdateContactInfoFormInput>({
     initialValues: {
       email,
@@ -39,7 +41,7 @@ export const ContactInfoForm = ({
     },
     validationSchema: ContactInfoSchema,
     onSubmit: async ({ email, website, phone }) => {
-      console.log("submit", email, website,phone);
+      handleUpdateProfile({email, website, phone})
     },
   });
 

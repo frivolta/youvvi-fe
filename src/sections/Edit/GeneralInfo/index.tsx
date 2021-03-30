@@ -27,8 +27,8 @@ export const GeneralInfo = ()=>{
     
     
 const pageContent = <>
-<GeneralInfoForm name={currentProfile.profile?.name || null} photoUrl={currentProfile.profile?.photoUrl} workTitle={currentProfile.profile?.workTitle || null} biography={currentProfile.profile?.biography}/>
-<ContactInfoForm website={currentProfile.profile?.website} phone={currentProfile.profile?.phone} email={currentProfile.profile?.email}/>
+<GeneralInfoForm name={currentProfile.profile?.name || null} photoUrl={currentProfile.profile?.photoUrl} workTitle={currentProfile.profile?.workTitle || null} biography={currentProfile.profile?.biography} handleUpdateProfile={handleUpdateProfile}/>
+<ContactInfoForm website={currentProfile.profile?.website} phone={currentProfile.profile?.phone} email={currentProfile.profile?.email} handleUpdateProfile={handleUpdateProfile}/>
 <BottomNotesForm bottomNotes={currentProfile.profile?.bottomNotes}  handleUpdateProfile={handleUpdateProfile}/>
 </>
     return !isLoading ? pageContent : <LoadingScreen loadingText="Loading your profile"/>

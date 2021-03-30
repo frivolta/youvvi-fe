@@ -4,7 +4,13 @@ import { H2 } from "../../../../../styles";
 import { Profile } from "../../../../../types/entities.types";
 import * as Yup from "yup";
 
-type Props = Pick<Profile, "name" | "photoUrl" | "workTitle" | "biography">;
+interface Props{
+  name: string | null;
+  workTitle: string | null;
+  photoUrl?: string;
+  biography?: string
+  handleUpdateProfile: (updatedInformations: Partial<Profile>) => void;
+}
 
 
 // Form data interface
@@ -20,18 +26,18 @@ const GeneralInfoSchema = Yup.object().shape({
   name: Yup.string()
     .min(2, "Too short")
     .max(50, "Too long")
-    .required("Required"),
+    .required("Required").nullable(),
   workTitle: Yup.string()
     .min(2, "Too short")
     .max(50, "Too long")
-    .required("Required"),
-  biography: Yup.string().min(2, "Too short").max(500, "Too long"),
+    .required("Required").nullable(),
+  biography: Yup.string().min(2, "Too short").max(500, "Too long").nullable(),
   photoUrl: Yup.string()
     .matches(
       /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
       "Enter a valid url"
     )
-    .required("Please enter your profile url"),
+    .required("Please enter your profile url").nullable(),
 });
 
 export const GeneralInfoForm = ({
@@ -39,6 +45,7 @@ export const GeneralInfoForm = ({
   photoUrl,
   workTitle,
   biography,
+  handleUpdateProfile
 }: Props) => {
   const formik = useFormik<UpdateGeneralInfoFormInput>({
     initialValues: {
@@ -49,7 +56,7 @@ export const GeneralInfoForm = ({
     },
     validationSchema: GeneralInfoSchema,
     onSubmit: async ({ name, photoUrl, workTitle, biography }) => {
-      console.log("submit", name, photoUrl, workTitle);
+      handleUpdateProfile({name, photoUrl, biography, workTitle,})
     },
   });
 
