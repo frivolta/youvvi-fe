@@ -70,7 +70,7 @@ export const BottomNotesForm = (props: Props) => {
   const allNotes = updatedNotes
     ? updatedNotes.map((updatedNote) => {
         return (
-          <Card>
+          <Card data-testid="bottom-note" testId={'bottom-note'}>
             {updatedNote}
             <Button
               margin="32px 0"

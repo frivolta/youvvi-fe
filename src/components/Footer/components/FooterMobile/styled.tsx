@@ -6,7 +6,6 @@ export const StyledFooterMobile = styled.div`
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  overflow-x: hidden;
 
   @media ${mediaQueries.tablet} {
     display: none;

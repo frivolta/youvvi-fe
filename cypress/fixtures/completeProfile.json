@@ -1,0 +1,256 @@
+{
+    "ok": true,
+    "user": {
+        "id": 1,
+        "createdAt": "2021-03-10T23:53:06.740Z",
+        "updatedAt": "2021-03-10T23:54:10.126Z",
+        "email": "rivoltafilippo@gmail.com",
+        "userId": "584f9d19-febf-4c5c-8449-b3adb9a1646d",
+        "profile": {
+            "id": 1,
+            "createdAt": "2021-03-10T23:54:10.126Z",
+            "updatedAt": "2021-03-30T09:28:22.881Z",
+            "name": "FILIPPO RIVOLTA",
+            "email": "rivoltafilippo@gmail.com",
+            "phone": "+39 334 7001377",
+            "website": "www.rivoltafilippo.com",
+            "biography": "Sono un Front-end developer e Ui Designer molto motivato,  creo applicazioni e siti web accessibili con un occhio di riguardo nei confronti dell'innovazione e dello stack tecnologico. Teamplayer, cerco di condividere nuove conoscenze e a collaborare con la mia squadra promuovendo una comunicazione chiara e attiva. Mi diverto ad esplorare nuove tendenze e a scrivere articoli entrando in contatto con le diverse realtá della web community.",
+            "bottomNotes": [
+                "Autorizzo il trattamento dei dati personali contenuti nel mio curriculum vitae in base all’art. 13 del D. Lgs. 196/2003 e all’art.\n13 del Regolamento UE 2016/679 relativo alla protezione delle persone fisiche con riguardo al trattamento dei dati personali.",
+                "Made with: Yuvvi (NestJS - TS - PostgreSQL - React). Check the alpha version repo on my github: https://github.com/frivolta."
+            ],
+            "workTitle": "FRONT-END DEVELOPER, UI / UX DESIGNER",
+            "photoUrl": "https://i.ibb.co/pPSGVbm/profile-Image.jpg"
+        },
+        "workingExperiences": [
+            {
+                "isActual": false,
+                "id": 7,
+                "createdAt": "2021-03-23T17:58:10.056Z",
+                "updatedAt": "2021-03-23T17:58:10.056Z",
+                "title": "Freelance",
+                "position": "Web Developer, Web Designer",
+                "startDate": "Ago 2012",
+                "endDate": "Mar 2013",
+                "description": "Mi sono occupato della creazione della Brand Identity ed Experience dei clienti, in particolare\nsviluppando soluzioni interamente personalizzate su CMS Wordpress, Drupal, Magento."
+            },
+            {
+                "isActual": false,
+                "id": 8,
+                "createdAt": "2021-03-23T17:58:56.654Z",
+                "updatedAt": "2021-03-23T17:58:56.654Z",
+                "title": "Gruppo Mediaset",
+                "position": "Graphic Designer, Consulente Run Design",
+                "startDate": "Mar 2014",
+                "endDate": "Dic 2015",
+                "description": "In sede presso la DCCI (Direzione Creativa Coordinamento Immagine), ho preso parte alla realizzazione di campagne stampa e web dei brand Mediaset."
+            },
+            {
+                "isActual": false,
+                "id": 9,
+                "createdAt": "2021-03-23T17:59:43.785Z",
+                "updatedAt": "2021-03-23T17:59:43.785Z",
+                "title": "Mediaset Premium",
+                "position": "Ui / Ux Designer, Consulente Run Design",
+                "startDate": "Mag 2015",
+                "endDate": "Ago 2015",
+                "description": "In collaborazione con il team interno all’azienda, ho preso parte alla realizzazione dell’esperienza\nutente e allo sviluppo della User Interface del sito web di Mediaset Premium fino al deploy della\nsua versione finale."
+            },
+            {
+                "isActual": false,
+                "id": 10,
+                "createdAt": "2021-03-23T18:00:37.535Z",
+                "updatedAt": "2021-03-23T18:00:37.535Z",
+                "title": "Run Design Branding Agency",
+                "position": "Ui / Ux Designer, Front-end developer",
+                "startDate": "Mar 2013",
+                "endDate": "Ago 2019",
+                "description": "Come Ui / Ux Designer e Front-End Developer mi occupo di capire i requisiti, gli obiettivi, i vincoli\ne interagire con i progetti in modo da realizzare siti e applicazioni in linea con il brand del cliente,\nprendendo parte al processo di design, prototipazione e sviluppo con tecnologie come PHP e\nJavaScript. "
+            },
+            {
+                "isActual": false,
+                "id": 11,
+                "createdAt": "2021-03-23T18:01:54.006Z",
+                "updatedAt": "2021-03-23T18:01:54.006Z",
+                "title": "Borsa Italiana S.p.A - London Stock Exchange Group",
+                "position": "Front-end, Software developer",
+                "startDate": "Set 2019",
+                "endDate": "Feb 2021",
+                "description": "Faccio parte del team internazionale di LSEG in qualità di Front-end developer,\nmi occupo di prendere parte al processo decisionale e realizzare applicazioni web (AGILE),\ncon particolare interesse allo sviluppo tramite framework e librerie moderne\n(React, Express, Socket.io)."
+            },
+            {
+                "isActual": false,
+                "id": 12,
+                "createdAt": "2021-03-23T18:08:41.726Z",
+                "updatedAt": "2021-03-23T18:08:41.726Z",
+                "title": "London Stock Exchange Group",
+                "position": "Front-end, Software developer",
+                "startDate": "Feb 2021",
+                "endDate": "Adesso",
+                "description": "Continuo il lavoro come software developer iniziato presso Borsa Italiana entrando a far parte del gruppo LSEG."
+            },
+            {
+                "isActual": false,
+                "id": 6,
+                "createdAt": "2021-03-22T15:23:39.754Z",
+                "updatedAt": "2021-03-23T18:11:09.119Z",
+                "title": "Arden Luogo del Possibile",
+                "position": "Insegnante di fotografia",
+                "startDate": "Dic 2011",
+                "endDate": "Mar 2012",
+                "description": ""
+            }
+        ],
+        "educations": [
+            {
+                "id": 5,
+                "createdAt": "2021-03-24T18:18:14.997Z",
+                "updatedAt": "2021-03-24T18:18:14.997Z",
+                "title": "Power Speech",
+                "institute": "Fare Utili",
+                "startYear": "2016",
+                "endYear": null
+            },
+            {
+                "id": 6,
+                "createdAt": "2021-03-24T18:18:33.383Z",
+                "updatedAt": "2021-03-24T18:18:33.383Z",
+                "title": "Comunicazione Efficace",
+                "institute": "Fare Utili",
+                "startYear": "2017",
+                "endYear": null
+            },
+            {
+                "id": 7,
+                "createdAt": "2021-03-24T18:18:55.836Z",
+                "updatedAt": "2021-03-24T18:18:55.836Z",
+                "title": "Corso Cinema 4D",
+                "institute": "Mohole",
+                "startYear": "2018",
+                "endYear": null
+            },
+            {
+                "id": 8,
+                "createdAt": "2021-03-24T18:19:34.860Z",
+                "updatedAt": "2021-03-24T18:19:34.860Z",
+                "title": "Liceo Scientifico Tecnologico",
+                "institute": "Instituto E. Breda, Sesto San Giovanni",
+                "startYear": "2010",
+                "endYear": "2011"
+            },
+            {
+                "id": 9,
+                "createdAt": "2021-03-24T18:20:01.825Z",
+                "updatedAt": "2021-03-24T18:20:01.825Z",
+                "title": "Marketing, Comunicazione e Mercati globali",
+                "institute": "Università di Milano Bicocca",
+                "startYear": "2010",
+                "endYear": "2011"
+            },
+            {
+                "id": 10,
+                "createdAt": "2021-03-24T18:20:27.102Z",
+                "updatedAt": "2021-03-24T18:20:27.102Z",
+                "title": "Graphic Design",
+                "institute": "Bauer, Milano",
+                "startYear": "2011",
+                "endYear": "2012"
+            },
+            {
+                "id": 11,
+                "createdAt": "2021-03-24T18:20:41.291Z",
+                "updatedAt": "2021-03-24T18:20:41.291Z",
+                "title": "Web Design",
+                "institute": "Bauer, Milano",
+                "startYear": "2012",
+                "endYear": "2013"
+            }
+        ],
+        "skillsets": [
+            {
+                "id": 4,
+                "createdAt": "2021-03-24T18:23:29.690Z",
+                "updatedAt": "2021-03-24T18:23:29.690Z",
+                "title": "Linguaggi",
+                "skills": [
+                    "JavaScript",
+                    "Typescript",
+                    "PHP",
+                    "HTML/CSS"
+                ]
+            },
+            {
+                "id": 5,
+                "createdAt": "2021-03-24T18:24:47.838Z",
+                "updatedAt": "2021-03-24T18:24:47.838Z",
+                "title": "Framework e librerie",
+                "skills": [
+                    "React JS",
+                    "React Native",
+                    "Redux",
+                    "Node.js",
+                    "Express",
+                    "Nest JS",
+                    "Next JS",
+                    "JQuery",
+                    "Laravel"
+                ]
+            },
+            {
+                "id": 6,
+                "createdAt": "2021-03-24T18:25:02.452Z",
+                "updatedAt": "2021-03-24T18:25:02.452Z",
+                "title": "CMS",
+                "skills": [
+                    "WordPress",
+                    "Drupal"
+                ]
+            },
+            {
+                "id": 7,
+                "createdAt": "2021-03-24T18:26:18.150Z",
+                "updatedAt": "2021-03-24T18:26:18.150Z",
+                "title": "Design",
+                "skills": [
+                    "Sketch",
+                    "Adobe XD",
+                    "Figma",
+                    "Suite Adobe (Illustrator - Photoshop - Animate - After Effects - Indesign - Lightroom)"
+                ]
+            },
+            {
+                "id": 8,
+                "createdAt": "2021-03-24T18:27:09.836Z",
+                "updatedAt": "2021-03-24T18:27:09.836Z",
+                "title": "Marketing",
+                "skills": [
+                    "SEO",
+                    "SEM (AdWords - Fb Ads)",
+                    "Social Media",
+                    "Google Analytics"
+                ]
+            },
+            {
+                "id": 9,
+                "createdAt": "2021-03-24T18:27:26.160Z",
+                "updatedAt": "2021-03-24T18:27:26.160Z",
+                "title": "Lingue",
+                "skills": [
+                    "Italiano",
+                    "Inglese"
+                ]
+            },
+            {
+                "id": 10,
+                "createdAt": "2021-03-24T18:27:45.667Z",
+                "updatedAt": "2021-03-24T18:27:45.667Z",
+                "title": "Non tecniche",
+                "skills": [
+                    "Motivato",
+                    "Sociale",
+                    "Team player"
+                ]
+            }
+        ]
+    }
+}
