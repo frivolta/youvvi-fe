@@ -115,7 +115,7 @@ export const GeneralInfoForm = ({
       <Button
         margin="32px 0"
         text="Update general informations"
-        disabled={!formik.isValid || !formik.dirty}
+        disabled={!formik.isValid}
       />
     </form>
   );

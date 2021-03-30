@@ -1,5 +1,6 @@
 import { Edit } from "../sections/Edit"
+import { EducationInfo } from "../sections/Edit/Education"
 
 export const EducationPage = ()=>{
-    return <Edit>Education</Edit>
+    return <Edit><EducationInfo/></Edit>
 }

@@ -87,7 +87,7 @@ export const ContactInfoForm = ({
       <Button
         margin="32px 0"
         text="Update contact informations"
-        disabled={!formik.isValid || !formik.dirty}
+        disabled={!formik.isValid}
       />
     </form>
   );
