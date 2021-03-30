@@ -4,11 +4,15 @@ import { H2 } from "../../../../../styles";
 import { Profile } from "../../../../../types/entities.types";
 import * as Yup from "yup";
 
-type Props = Pick<Profile, "email" | "phone" | "website">;
-
 // Form data interface
 interface UpdateContactInfoFormInput {
   email?:string;
+  phone?: string;
+  website?: string;
+}
+
+interface Props {
+  email?: string;
   phone?: string;
   website?: string;
 }
@@ -45,7 +49,7 @@ export const ContactInfoForm = ({
         name="email"
         handleChange={formik.handleChange}
         handleBlur={formik.handleBlur}
-        value={formik.values.email}
+        value={formik.values.email || ""}
         type="text"
         label="Email"
         placeholder="info@email.com"
@@ -56,7 +60,7 @@ export const ContactInfoForm = ({
         name="website"
         handleChange={formik.handleChange}
         handleBlur={formik.handleBlur}
-        value={formik.values.website}
+        value={formik.values.website || ""}
         type="text"
         label="Website"
         placeholder="https://www..."
@@ -69,7 +73,7 @@ export const ContactInfoForm = ({
         name="phone"
         handleChange={formik.handleChange}
         handleBlur={formik.handleBlur}
-        value={formik.values.phone}
+        value={formik.values.phone || ""}
         type="text"
         label="Phone"
         placeholder="555-"

@@ -5,13 +5,14 @@ import { Profile } from "../../../../../types/entities.types";
 import * as Yup from "yup";
 import React from "react";
 
-type Props = Pick<Profile, "bottomNotes">;
-
-
+interface Props {
+  bottomNotes?: string[];
+  handleUpdateProfile: (updatedInformations: Partial<Profile>) => void;
+}
 
 // Form data interface
 interface UpdateBottomNotesFormInput {
-  note:string;
+  note: string;
 }
 
 // General info form schema
@@ -19,23 +20,28 @@ const BottomNotesSchema = Yup.object().shape({
   note: Yup.string().min(2, "Too short").max(500, "Too long"),
 });
 
-export const BottomNotesForm = ({bottomNotes}: Props) => {
-    const  [updatedNotes, setUpdatedNotes] = React.useState<string[] | undefined>(bottomNotes)
-    const  [formHasUpdates, setFormHasUpdates]=React.useState<boolean>(false)
+export const BottomNotesForm = (props: Props) => {
+  const { bottomNotes } = props;
+  const [updatedNotes, setUpdatedNotes] = React.useState<string[]>(bottomNotes || []);
+  const [formHasUpdates, setFormHasUpdates] = React.useState<boolean>(false);
 
-const deleteNote = (note:string) =>{
-    setUpdatedNotes(updatedNotes?.filter(n=> n!==note))
-    setFormHasUpdates(true)
-}
+  const deleteNote = (note: string) => {
+    setUpdatedNotes(updatedNotes?.filter((n) => n !== note));
+    setFormHasUpdates(true);
+  };
+
+  const updateInformations = () => {
+    props.handleUpdateProfile({bottomNotes: updatedNotes})
+  };
 
   const formik = useFormik<UpdateBottomNotesFormInput>({
     initialValues: {
-      note: ""
+      note: "",
     },
     validationSchema: BottomNotesSchema,
     onSubmit: async ({ note }) => {
-      setUpdatedNotes([note, ...(updatedNotes || [])])
-      setFormHasUpdates(true)
+      setUpdatedNotes([note, ...(updatedNotes || [])]);
+      setFormHasUpdates(true);
     },
   });
 
@@ -61,16 +67,21 @@ const deleteNote = (note:string) =>{
     </form>
   );
 
-  const allNotes = updatedNotes ? updatedNotes.map(updatedNote=>{
-      return <Card>{updatedNote}
-      <Button
-        margin="32px 0"
-        text="Delete note"
-        secondary
-        handleClick={()=>deleteNote(updatedNote)}
-      />
-      </Card>
-  }) :null
+  const allNotes = updatedNotes
+    ? updatedNotes.map((updatedNote) => {
+        return (
+          <Card>
+            {updatedNote}
+            <Button
+              margin="32px 0"
+              text="Delete note"
+              secondary
+              handleClick={() => deleteNote(updatedNote)}
+            />
+          </Card>
+        );
+      })
+    : null;
 
   const bottomNotesCardElement = (
     <Card margin="32px auto">
@@ -81,6 +92,7 @@ const deleteNote = (note:string) =>{
       <Button
         margin="32px 0"
         text="Save bottom note edits"
+        handleClick={updateInformations}
         disabled={!formHasUpdates}
       />
     </Card>

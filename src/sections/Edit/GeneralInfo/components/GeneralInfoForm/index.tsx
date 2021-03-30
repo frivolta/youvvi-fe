@@ -9,9 +9,9 @@ type Props = Pick<Profile, "name" | "photoUrl" | "workTitle" | "biography">;
 
 // Form data interface
 interface UpdateGeneralInfoFormInput {
-  name: string;
+  name: string | null;
   photoUrl?: string;
-  workTitle: string;
+  workTitle: string | null;
   biography?: string;
 }
 
@@ -59,7 +59,7 @@ export const GeneralInfoForm = ({
         name="name"
         handleChange={formik.handleChange}
         handleBlur={formik.handleBlur}
-        value={formik.values.name}
+        value={formik.values.name || ""}
         type="text"
         label="Your personal name"
         placeholder="John Doe"
@@ -83,7 +83,7 @@ export const GeneralInfoForm = ({
         name="workTitle"
         handleChange={formik.handleChange}
         handleBlur={formik.handleBlur}
-        value={formik.values.workTitle}
+        value={formik.values.workTitle || ""}
         type="text"
         label="Your work title"
         placeholder="Front-end Developer"
@@ -96,7 +96,7 @@ export const GeneralInfoForm = ({
         name="biography"
         handleChange={formik.handleChange}
         handleBlur={formik.handleBlur}
-        value={formik.values.biography}
+        value={formik.values.biography || ""}
         type="text"
         label="Biography"
         placeholder="Something about you..."
