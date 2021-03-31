@@ -1,38 +1,52 @@
-import { Button, Card } from "../../../../../components";
-import { H2, H5 } from "../../../../../styles";
+import { truncateString } from "../../../../../app/helpers/truncate";
+import { Card, IconAction } from "../../../../../components";
+import { H5 } from "../../../../../styles";
 import { Education } from "../../../../../types/entities.types";
+import {
+  DeleteEducationIcon,
+  EditEducationIcon,
+  StyledEducationActionContainer,
+  StyledEducationCardContent,
+} from "./styled";
 
 interface Props {
-  educations: Education[];
+  educations?: Education[];
   handleEditAction: (education: Education) => void;
+  handleDeleteAction: (education: Education) => void;
 }
 
-// Form data interface
-interface CreateEducationFormInputs {
-  title: string;
-  institute: string;
-  startYear: string;
-  endYear: string;
-}
-
-export const EducationList = ({ educations, handleEditAction }: Props) => {
+export const EducationList = ({
+  educations,
+  handleEditAction,
+  handleDeleteAction,
+}: Props) => {
   const educationElement = (education: Education) => {
     return (
-      <Card key={education.id} size="small">
-        <H5>{education.title}</H5>
-        <Button
-          text="Edit"
-          secondary
-          handleClick={() => handleEditAction(education)}
-        />
+      <Card key={education.id} margin="8px auto">
+        <StyledEducationCardContent>
+          <H5>{truncateString(education.title, 50)}</H5>
+          <StyledEducationActionContainer>
+            <IconAction
+              icon={<EditEducationIcon />}
+              action={() => handleEditAction(education)}
+            />
+            <IconAction
+              icon={<DeleteEducationIcon />}
+              action={() => handleDeleteAction(education)}
+            />
+          </StyledEducationActionContainer>
+        </StyledEducationCardContent>
       </Card>
     );
   };
 
   return (
-    <Card margin="32px auto">
-      <H2>Your current education titles</H2>
-      {educations.map((ed) => educationElement(ed))}
-    </Card>
+    <>
+      {educations ? (
+        educations.map((ed) => educationElement(ed))
+      ) : (
+        <p>You currently don't have any education...</p>
+      )}
+    </>
   );
 };

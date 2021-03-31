@@ -9,7 +9,12 @@ interface StyledCardProps {
 
 interface StyledCardContentProps {
   size?: "small" | "regular";
+  inline?: boolean;
 }
+const displayInlineProperties = `
+  display: flex;
+justify-content: space-between;
+align-items: center;`;
 
 export const StyledCard = styled.div<StyledCardProps>`
   display: flex;
@@ -39,4 +44,5 @@ export const StyledCardContent = styled.div<StyledCardContentProps>`
   width: 100%;
   padding: ${(props) =>
     props.size === "small" ? smallCardContentSize : regularCardContentSize};
+  ${(props) => (props.inline ? displayInlineProperties : null)}
 `;

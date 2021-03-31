@@ -8,7 +8,8 @@ interface Props {
   size?: "small" | "regular";
   handleCLick?: () => void;
   backgroundColor?: string;
-  testId?: string
+  testId?: string;
+  inline?: boolean;
 }
 
 export const Card: FC<Props> = ({
@@ -17,7 +18,8 @@ export const Card: FC<Props> = ({
   margin,
   size,
   backgroundColor,
-  testId
+  testId,
+  inline,
 }: Props) => {
   return (
     <StyledCard
@@ -26,7 +28,9 @@ export const Card: FC<Props> = ({
       backgroundColor={backgroundColor}
       data-testid={testId}
     >
-      <StyledCardContent size={size}>{children}</StyledCardContent>
+      <StyledCardContent size={size} inline={inline}>
+        {children}
+      </StyledCardContent>
     </StyledCard>
   );
 };

@@ -4,10 +4,12 @@ import {
   fetchProfile,
   profileSelector,
 } from "../../../app/profile/profileSlice";
-import { LoadingScreen } from "../../../components";
+import { Card, IconAction, LoadingScreen } from "../../../components";
+import { H2 } from "../../../styles";
 import { Education } from "../../../types/entities.types";
 import { EducationList } from "./components";
 import { EducationModal } from "./components/EducationModal";
+import { AddNewEducationIcon } from "./styled";
 
 export const EducationInfo = () => {
   const { isLoading, currentProfile } = useSelector(profileSelector);
@@ -15,7 +17,7 @@ export const EducationInfo = () => {
   const [editingEducation, setEditingEducation] = React.useState<
     Education | undefined
   >(undefined);
-  const [isModalOpen, setIsModalOpen] = React.useState<boolean>(true);
+  const [isModalOpen, setIsModalOpen] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     dispatch(fetchProfile());
@@ -26,6 +28,11 @@ export const EducationInfo = () => {
     setEditingEducation(e);
   };
 
+  const handleCreateNewEducation = () => {
+    setIsModalOpen(true);
+    setEditingEducation(undefined);
+  };
+
   const pageContent = (
     <>
       <EducationModal
@@ -34,12 +41,18 @@ export const EducationInfo = () => {
         editingEducation={editingEducation}
         handleOpen={() => setIsModalOpen(false)}
       />
-      {currentProfile.educations ? (
-        <EducationList
-          educations={currentProfile.educations}
-          handleEditAction={handleSetEducationToEdit}
+      <Card margin="32px auto" inline>
+        <H2>Your current education titles</H2>
+        <IconAction
+          icon={<AddNewEducationIcon />}
+          action={handleCreateNewEducation}
         />
-      ) : null}
+      </Card>
+      <EducationList
+        educations={currentProfile?.educations || []}
+        handleEditAction={handleSetEducationToEdit}
+        handleDeleteAction={handleSetEducationToEdit}
+      />
     </>
   );
 

@@ -18,3 +18,4 @@ export * from "./Calendar";
 export * from "./MonthSelector";
 export * from "./ProgressBar";
 export * from "./Modal";
+export * from "./IconAction";
