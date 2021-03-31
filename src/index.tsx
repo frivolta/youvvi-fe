@@ -11,8 +11,7 @@ import { ThemeProvider } from "styled-components";
 import { defaultTheme, GlobalStyle } from "./styles";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-
+import { ModalProvider } from "styled-react-modal";
 
 const container = document.getElementById("root");
 
@@ -27,16 +26,18 @@ toast.configure({
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-    <ThemeProvider theme={defaultTheme}>
-      <GlobalStyle />
-      <ToastContainer />
-      <BrowserRouter>
-        <Switch>
-          <AuthProvider>
-            <App />
-          </AuthProvider>
-        </Switch>
-      </BrowserRouter>
+      <ThemeProvider theme={defaultTheme}>
+        <ModalProvider>
+          <GlobalStyle />
+          <ToastContainer />
+          <BrowserRouter>
+            <Switch>
+              <AuthProvider>
+                <App />
+              </AuthProvider>
+            </Switch>
+          </BrowserRouter>
+        </ModalProvider>
       </ThemeProvider>
     </Provider>
   </React.StrictMode>,

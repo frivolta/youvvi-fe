@@ -15,6 +15,6 @@ export * from "./IntroDescription";
 export * from "./RangePicker";
 export * from "./ErrorCard";
 export * from "./Calendar";
-export * from './Modal'
-export * from './MonthSelector'
-export * from './ProgressBar'
+export * from "./MonthSelector";
+export * from "./ProgressBar";
+export * from "./Modal";

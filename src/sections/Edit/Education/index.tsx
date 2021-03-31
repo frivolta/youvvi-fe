@@ -7,6 +7,7 @@ import {
 import { LoadingScreen } from "../../../components";
 import { Education } from "../../../types/entities.types";
 import { EducationForm, EducationList } from "./components";
+import { EducationModal } from "./components/EducationModal";
 
 export const EducationInfo = () => {
   const { isLoading, currentProfile } = useSelector(profileSelector);
@@ -14,6 +15,7 @@ export const EducationInfo = () => {
   const [editingEducation, setEditingEducation] = React.useState<
     Education | undefined
   >(undefined);
+  const [isModalOpen, setIsModalOpen] = React.useState<boolean>(true);
 
   React.useEffect(() => {
     dispatch(fetchProfile());
@@ -21,6 +23,11 @@ export const EducationInfo = () => {
 
   const pageContent = (
     <>
+      <EducationModal
+        isOpen={isModalOpen}
+        isEdit={false}
+        handleOpen={() => setIsModalOpen(false)}
+      />
       <EducationForm
         editingEducation={editingEducation}
         handleResetEducation={() => setEditingEducation(undefined)}

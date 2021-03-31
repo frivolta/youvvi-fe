@@ -26,7 +26,7 @@ export const App: React.FC = () => {
       const currentUser: CurrentUser = {
         token: localStorage.yuvviToken,
         userId: decoded.sub,
-        email: decoded.email
+        email: decoded.email,
       };
       dispatch(setAuthManually(currentUser));
     } else {
@@ -36,7 +36,7 @@ export const App: React.FC = () => {
   };
 
   if (isAppLoading) {
-    return <LoadingScreen loadingText="App loading..."/>;
+    return <LoadingScreen loadingText="App loading..." />;
   }
 
   return <Routes />;

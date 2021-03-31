@@ -1,19 +1,47 @@
 import styled from "styled-components";
+import Modal from "styled-react-modal";
+import { RiEyeCloseLine } from "react-icons/ri";
+import { spaceUnit } from "../../styles";
 
-export const ModalWrapper = styled.div`
+export const StyledModal = styled(Modal)`
+  width: 20rem;
+  height: 20rem;
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100%;
-  background-color: ${(props) => props.theme.colors.componentBackground};
+  justify-content: center;
+  background-color: ${(props) => props.theme.colors.primary};
+  transition: all 0.5s ease-in-out;
 `;
 
-export const ModalContainer = styled.div`
+export const StyledModalContainer = styled.div`
   display: flex;
-  padding: ${(props) => props.theme.space.max};
-  width: 100%;
-  justify-content: center;
-  align-items: center;
+  width: 50%;
+  padding: ${spaceUnit}px;
+  flex-direction: column;
+  border-radius: ${(props) => props.theme.borderRadius.base};
+  background-color: ${(props) => props.theme.colors.componentHover};
+`;
+
+export const StyledModalCloseWrapper = styled.div`
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: flex-end;
+  padding: ${(props) => props.theme.space.m};
+`;
+
+export const StyledModalClose = styled(RiEyeCloseLine)`
+  color: ${(props) => props.theme.colors.primary};
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: color 0.3s ease-out;
+  &:hover {
+    color: ${(props) => props.theme.colors.wants};
+    transition: color 0.3s ease-out;
+  }
+`;
+
+export const StyledModalContentWrapper = styled.div`
+  display: flex;
   flex-direction: column;
 `;
