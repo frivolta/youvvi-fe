@@ -7,10 +7,7 @@ import {
 } from "../../../app/profile/profileSlice";
 import { Card, IconAction, LoadingScreen } from "../../../components";
 import { H2 } from "../../../styles";
-import {
-  CreateEducationInput,
-  EditEducationInput,
-} from "../../../types/api.types";
+import { CreateEducationInput } from "../../../types/api.types";
 import { Education } from "../../../types/entities.types";
 import { EducationList } from "./components";
 import { EducationModal } from "./components/EducationModal";
@@ -39,9 +36,23 @@ export const EducationInfo = () => {
     setEditingEducation(undefined);
   };
 
-  // If Edit is clicked, check if editing education exists, if so take the id from the action and add the updated fields otherwise create a new oneOf
+  const onEditOrCreateEducation = (
+    updateEducationInput: CreateEducationInput
+  ) => {
+    const isEditMode = !!editingEducation;
+    isEditMode && editingEducation
+      ? dispatch(
+          updateEducation({ id: editingEducation.id, ...updateEducationInput })
+        )
+      : dispatch(updateEducation(updateEducationInput));
+    setIsModalOpen(false);
+    setEditingEducation(undefined);
+  };
 
-  // If delete education is clicked dispatch a delete action with the editing education id
+  const onDeleteEducation = (id: number) => {
+    dispatch(deleteEducation(id));
+    setIsModalOpen(false);
+  };
 
   const pageContent = (
     <>
@@ -50,6 +61,7 @@ export const EducationInfo = () => {
         isEdit={!!editingEducation}
         editingEducation={editingEducation}
         handleOpen={() => setIsModalOpen(false)}
+        handleEditOrCreate={onEditOrCreateEducation}
       />
       <Card margin="32px auto" inline>
         <H2>Your current education titles</H2>
@@ -61,7 +73,7 @@ export const EducationInfo = () => {
       <EducationList
         educations={currentProfile?.educations || []}
         handleEditAction={handleSetEducationToEdit}
-        handleDeleteAction={handleSetEducationToEdit}
+        handleDeleteAction={onDeleteEducation}
       />
     </>
   );

@@ -1,4 +1,5 @@
 import { Modal } from "../../../../../components";
+import { CreateEducationInput } from "../../../../../types/api.types";
 import { Education } from "../../../../../types/entities.types";
 import { EducationForm } from "./components";
 
@@ -12,6 +13,7 @@ interface Props {
   isEdit?: boolean;
   handleOpen: () => void;
   editingEducation?: Education;
+  handleEditOrCreate: (updateEducationInput: CreateEducationInput) => void;
 }
 
 export const EducationModal = ({
@@ -19,17 +21,14 @@ export const EducationModal = ({
   isEdit = false,
   handleOpen,
   editingEducation,
+  handleEditOrCreate,
 }: Props) => {
-  const handleSubmitForm = (editedEducation: EditEducationFields) => {
-    return console.log(isEdit ? `Editing` : `creating`);
-  };
-
   return (
     <Modal isOpen={isOpen} handleOpen={handleOpen}>
       <EducationForm
         isEdit={isEdit}
         editingEducation={editingEducation}
-        handleSubmitForm={handleSubmitForm}
+        handleSubmitForm={handleEditOrCreate}
       />
     </Modal>
   );

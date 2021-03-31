@@ -1,8 +1,8 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { EditEducationFields } from "../..";
-import { Button, Card, Input } from "../../../../../../../components";
+import { Button, Input } from "../../../../../../../components";
 import { H2 } from "../../../../../../../styles";
+import { CreateEducationInput } from "../../../../../../../types/api.types";
 import { Education } from "../../../../../../../types/entities.types";
 import {
   StyledEducationForm,
@@ -13,13 +13,13 @@ import {
 interface Props {
   isEdit: boolean;
   editingEducation?: Education;
-  handleSubmitForm: (editingEducation: EditEducationFields) => void;
+  handleSubmitForm: (updateEducationInput: CreateEducationInput) => void;
 }
 
 const EducationSchema = Yup.object().shape({
-  title: Yup.string().min(2, "Too short").max(50, "Too long"),
-  institute: Yup.string().min(2, "Too short").max(50, "Too long"),
-  startYear: Yup.string().min(2, "Too short").max(4, "Too long"),
+  title: Yup.string().min(2, "Too short").max(50, "Too long").required(),
+  institute: Yup.string().min(2, "Too short").max(50, "Too long").required(),
+  startYear: Yup.string().min(2, "Too short").max(4, "Too long").required(),
   endYear: Yup.string().min(2, "Too short").max(4, "Too long").nullable(),
 });
 
@@ -32,7 +32,6 @@ interface CreateEducationFormInputs {
 }
 
 export const EducationForm = ({
-  isEdit,
   editingEducation,
   handleSubmitForm,
 }: Props) => {

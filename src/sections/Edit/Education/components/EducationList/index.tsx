@@ -12,7 +12,7 @@ import {
 interface Props {
   educations?: Education[];
   handleEditAction: (education: Education) => void;
-  handleDeleteAction: (education: Education) => void;
+  handleDeleteAction: (id: number) => void;
 }
 
 export const EducationList = ({
@@ -32,7 +32,7 @@ export const EducationList = ({
             />
             <IconAction
               icon={<DeleteEducationIcon />}
-              action={() => handleDeleteAction(education)}
+              action={() => handleDeleteAction(education.id)}
             />
           </StyledEducationActionContainer>
         </StyledEducationCardContent>

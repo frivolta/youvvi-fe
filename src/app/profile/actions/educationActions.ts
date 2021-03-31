@@ -2,27 +2,25 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { apiAddress } from "../../../api";
 import {
+  EditEducationInput,
   GetCompleteUserProfileOutput,
   QueryOutput,
 } from "../../../types/api.types";
-import {
-  CompleteProfile,
-  Education,
-  QueryError,
-} from "../../../types/entities.types";
+import { CompleteProfile, QueryError } from "../../../types/entities.types";
 
 // Update education or create new one and fetch profile
 export const updateEducation = createAsyncThunk<
   CompleteProfile,
-  Partial<Education>,
+  EditEducationInput,
   { rejectValue: QueryError }
 >("profile/updateEducation", async (updatedEducation, thunkApi) => {
   try {
+    const { id, ...updateData } = updatedEducation;
     // If profile exists update otherwise create a new one
-    updatedEducation.id
+    id
       ? await axios.patch<QueryOutput>(
-          `${apiAddress.EDUCATION}/${updatedEducation.id}`,
-          updatedEducation
+          `${apiAddress.EDUCATION}/${id}`,
+          updateData
         )
       : await axios.post<QueryOutput>(apiAddress.EDUCATION, updatedEducation);
     const response = await axios.get<GetCompleteUserProfileOutput>(
@@ -50,7 +48,7 @@ export const deleteEducation = createAsyncThunk<
   CompleteProfile,
   number,
   { rejectValue: QueryError }
->("profile/updateProfile", async (id, thunkApi) => {
+>("profile/deleteEducation", async (id, thunkApi) => {
   try {
     await axios.delete<QueryOutput>(`${apiAddress.EDUCATION}/${id}`);
     const response = await axios.get<GetCompleteUserProfileOutput>(
