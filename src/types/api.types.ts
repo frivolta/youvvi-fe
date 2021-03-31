@@ -1,29 +1,45 @@
 import { CompleteProfile, Education, Profile } from "./entities.types";
 
 export interface QueryOutput {
-    ok: boolean;
-    error?: string;
+  ok: boolean;
+  error?: string;
 }
 
-export interface AuthenticationInput{
-    name: string;
-    password: string;
+export interface AuthenticationInput {
+  name: string;
+  password: string;
 }
 
-export interface AuthenticationOutput extends QueryOutput{
-    token?: string;
-    userId?:string;
-    email?:string;
+export interface AuthenticationOutput extends QueryOutput {
+  token?: string;
+  userId?: string;
+  email?: string;
 }
 
-export interface EducationOutput extends QueryOutput{
-    educations?: Education[]
+export interface EducationOutput extends QueryOutput {
+  educations?: Education[];
 }
 
 // Profile output
-export interface GetCompleteUserProfileOutput extends QueryOutput{
-    user?: CompleteProfile;
+export interface GetCompleteUserProfileOutput extends QueryOutput {
+  user?: CompleteProfile;
 }
 
 // Profile update output
-export type UpdateUserProfileGeneralInfo = Profile
+export type UpdateUserProfileGeneralInfo = Profile;
+
+// Education inputs
+export type CreateEducationInput = {
+  title: string;
+  institute: string;
+  startYear: string;
+  endYear?: string;
+};
+
+export type EditEducationInput = {
+  id: number;
+  title?: string;
+  institute?: string;
+  startYear?: string;
+  endYear?: string;
+};

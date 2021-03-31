@@ -1,11 +1,16 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { deleteEducation, updateEducation } from "../../../app/profile/actions";
 import {
   fetchProfile,
   profileSelector,
 } from "../../../app/profile/profileSlice";
 import { Card, IconAction, LoadingScreen } from "../../../components";
 import { H2 } from "../../../styles";
+import {
+  CreateEducationInput,
+  EditEducationInput,
+} from "../../../types/api.types";
 import { Education } from "../../../types/entities.types";
 import { EducationList } from "./components";
 import { EducationModal } from "./components/EducationModal";
@@ -23,6 +28,7 @@ export const EducationInfo = () => {
     dispatch(fetchProfile());
   }, [dispatch]);
 
+  //State setters
   const handleSetEducationToEdit = (e: Education) => {
     setIsModalOpen(true);
     setEditingEducation(e);
@@ -32,6 +38,10 @@ export const EducationInfo = () => {
     setIsModalOpen(true);
     setEditingEducation(undefined);
   };
+
+  // If Edit is clicked, check if editing education exists, if so take the id from the action and add the updated fields otherwise create a new oneOf
+
+  // If delete education is clicked dispatch a delete action with the editing education id
 
   const pageContent = (
     <>

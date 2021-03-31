@@ -12,6 +12,7 @@ import {
 } from "../../types/entities.types";
 import { toasterError, toasterSuccess } from "../../utils/toast";
 import { RootState } from "../store";
+import { deleteEducation, updateEducation } from "./actions";
 
 interface ProfileState {
   hasProfile: boolean;
@@ -146,6 +147,52 @@ export const profileSlice = createSlice({
       toasterError("Cannot update profile");
     });
     builder.addCase(updateProfile.pending, (state) => {
+      state.isLoading = true;
+      state.hasProfile = false;
+      state.currentProfile = initialProfile;
+      state.error = { hasErrors: false, message: null };
+    });
+    builder.addCase(updateEducation.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
+      state.hasProfile = true;
+      state.currentProfile = payload;
+      state.error = { hasErrors: false, message: null };
+      toasterSuccess("Education updated");
+    });
+    builder.addCase(updateEducation.rejected, (state, { payload }) => {
+      state.isLoading = true;
+      state.hasProfile = false;
+      state.currentProfile = initialProfile;
+      state.error = {
+        hasErrors: true,
+        message: payload?.error || "Cannot update education",
+      };
+      toasterError("Cannot update education");
+    });
+    builder.addCase(updateEducation.pending, (state) => {
+      state.isLoading = true;
+      state.hasProfile = false;
+      state.currentProfile = initialProfile;
+      state.error = { hasErrors: false, message: null };
+    });
+    builder.addCase(deleteEducation.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
+      state.hasProfile = true;
+      state.currentProfile = payload;
+      state.error = { hasErrors: false, message: null };
+      toasterSuccess("Education deleted");
+    });
+    builder.addCase(deleteEducation.rejected, (state, { payload }) => {
+      state.isLoading = true;
+      state.hasProfile = false;
+      state.currentProfile = initialProfile;
+      state.error = {
+        hasErrors: true,
+        message: payload?.error || "Cannot delete education",
+      };
+      toasterError("Cannot delete education");
+    });
+    builder.addCase(deleteEducation.pending, (state) => {
       state.isLoading = true;
       state.hasProfile = false;
       state.currentProfile = initialProfile;
