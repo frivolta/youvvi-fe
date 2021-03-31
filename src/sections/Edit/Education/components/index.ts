@@ -1,2 +1,2 @@
-export * from "./EducationForm";
 export * from "./EducationList";
+export * from "./EducationModal";

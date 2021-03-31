@@ -6,7 +6,7 @@ import {
 } from "../../../app/profile/profileSlice";
 import { LoadingScreen } from "../../../components";
 import { Education } from "../../../types/entities.types";
-import { EducationForm, EducationList } from "./components";
+import { EducationList } from "./components";
 import { EducationModal } from "./components/EducationModal";
 
 export const EducationInfo = () => {
@@ -21,21 +21,23 @@ export const EducationInfo = () => {
     dispatch(fetchProfile());
   }, [dispatch]);
 
+  const handleSetEducationToEdit = (e: Education) => {
+    setIsModalOpen(true);
+    setEditingEducation(e);
+  };
+
   const pageContent = (
     <>
       <EducationModal
         isOpen={isModalOpen}
-        isEdit={false}
-        handleOpen={() => setIsModalOpen(false)}
-      />
-      <EducationForm
+        isEdit={!!editingEducation}
         editingEducation={editingEducation}
-        handleResetEducation={() => setEditingEducation(undefined)}
+        handleOpen={() => setIsModalOpen(false)}
       />
       {currentProfile.educations ? (
         <EducationList
           educations={currentProfile.educations}
-          handleEditAction={setEditingEducation}
+          handleEditAction={handleSetEducationToEdit}
         />
       ) : null}
     </>

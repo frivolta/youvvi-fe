@@ -9,7 +9,7 @@ export const StyledModal = styled(Modal)`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${(props) => props.theme.colors.primary};
+  background-color: ${(props) => props.theme.colors.componentBackground};
   transition: all 0.5s ease-in-out;
 `;
 
@@ -19,7 +19,7 @@ export const StyledModalContainer = styled.div`
   padding: ${spaceUnit}px;
   flex-direction: column;
   border-radius: ${(props) => props.theme.borderRadius.base};
-  background-color: ${(props) => props.theme.colors.componentHover};
+  background-color: ${(props) => props.theme.colors.componentBackground};
 `;
 
 export const StyledModalCloseWrapper = styled.div`
