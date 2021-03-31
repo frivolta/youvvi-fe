@@ -301,7 +301,7 @@ const bottomNotes = {
     alignItems: "center",
     flexGrow: 1,
     justifyContent: "flex-end",
-    marginBottom: 40,
+    marginBottom: 25,
     textAlign: "center",
   },
   bottomNote: { marginTop: 15 },
@@ -314,7 +314,7 @@ const educationStyle = {
     position: "relative",
     flexDirection: "column",
     flexWrap: "wrap",
-    height: "15%",
+    height: "17%",
   },
   educationTitle: {
     //@ts-ignore

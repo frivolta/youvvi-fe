@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { apiAddress } from "../../../api";
 import {
-  EditEducationInput,
+  EditOrCreateEducationInput,
   GetCompleteUserProfileOutput,
   QueryOutput,
 } from "../../../types/api.types";
@@ -11,7 +11,7 @@ import { CompleteProfile, QueryError } from "../../../types/entities.types";
 // Update education or create new one and fetch profile
 export const updateEducation = createAsyncThunk<
   CompleteProfile,
-  EditEducationInput,
+  EditOrCreateEducationInput,
   { rejectValue: QueryError }
 >("profile/updateEducation", async (updatedEducation, thunkApi) => {
   try {

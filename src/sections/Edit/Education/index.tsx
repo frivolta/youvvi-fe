@@ -5,7 +5,12 @@ import {
   fetchProfile,
   profileSelector,
 } from "../../../app/profile/profileSlice";
-import { Card, IconAction, LoadingScreen } from "../../../components";
+import {
+  Card,
+  ErrorCard,
+  IconAction,
+  LoadingScreen,
+} from "../../../components";
 import { H2 } from "../../../styles";
 import { CreateEducationInput } from "../../../types/api.types";
 import { Education } from "../../../types/entities.types";
@@ -14,7 +19,7 @@ import { EducationModal } from "./components/EducationModal";
 import { AddNewEducationIcon } from "./styled";
 
 export const EducationInfo = () => {
-  const { isLoading, currentProfile } = useSelector(profileSelector);
+  const { isLoading, currentProfile, error } = useSelector(profileSelector);
   const dispatch = useDispatch();
   const [editingEducation, setEditingEducation] = React.useState<
     Education | undefined
@@ -77,6 +82,14 @@ export const EducationInfo = () => {
       />
     </>
   );
+
+  if (error.hasErrors) {
+    return (
+      <ErrorCard
+        errorMessage={error.message || "There was an error loading the page"}
+      />
+    );
+  }
 
   return !isLoading ? (
     pageContent

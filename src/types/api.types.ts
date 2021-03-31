@@ -36,6 +36,14 @@ export type CreateEducationInput = {
   endYear?: string;
 };
 
+export type EditOrCreateEducationInput = {
+  id?: number;
+  title: string;
+  institute: string;
+  startYear: string;
+  endYear?: string;
+};
+
 export type EditEducationInput = {
   id: number;
   title?: string;
