@@ -207,7 +207,7 @@ export const profileSlice = createSlice({
       state.hasProfile = true;
       state.currentProfile = payload;
       state.error = { hasErrors: false, message: null };
-      toasterSuccess("WorkingExperience updated");
+      toasterSuccess("Working Experience updated");
     });
     builder.addCase(updateWorkingExperience.rejected, (state, { payload }) => {
       state.isLoading = true;

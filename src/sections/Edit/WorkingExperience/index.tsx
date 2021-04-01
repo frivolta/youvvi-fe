@@ -78,7 +78,7 @@ export const WorkingExperienceInfo = () => {
         <IconAction
           icon={<AddNewWorkingExperienceIcon />}
           action={handleCreateNewWorkingExperience}
-          dataTestId="create-education-button"
+          dataTestId="create-working-experience-button"
         />
       </Card>
       <WorkingExperienceList
