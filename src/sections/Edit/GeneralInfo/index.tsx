@@ -53,7 +53,7 @@ export const GeneralInfo = () => {
     </>
   );
 
-  if (error) {
+  if (error.hasErrors) {
     return (
       <ErrorCard
         errorMessage={error.message || "There was an error loading the page"}
