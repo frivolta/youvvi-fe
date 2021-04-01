@@ -1,5 +1,3 @@
-// User can see an error if there is one
-
 import { testUser } from "../config/users";
 import { NETWORK } from "../config/variables";
 //@ts-ignore
@@ -132,7 +130,7 @@ describe("Education informations", () => {
     );
     cy.contains("Education deleted");
   });
-  it.only("prevent user from adding invalid education", () => {
+  it("prevent user from adding invalid education", () => {
     let getProfileCount = -1;
     const profileResponses = [completeProfileNoEducations];
     cy.intercept("GET", "**/profile/complete-profile", (req) => {
