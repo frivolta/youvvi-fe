@@ -1,4 +1,9 @@
-import { CompleteProfile, Education, Profile } from "./entities.types";
+import {
+  CompleteProfile,
+  Education,
+  Profile,
+  WorkingExperience,
+} from "./entities.types";
 
 export interface QueryOutput {
   ok: boolean;
@@ -51,3 +56,24 @@ export type EditEducationInput = {
   startYear?: string;
   endYear?: string;
 };
+
+// Working experiences types
+export type CreateWorkingExperienceInput = Omit<
+  WorkingExperience,
+  "id" | "createdAt" | "updatedAt"
+>;
+
+export type EditOrCreateWorkingExperienceInput = {
+  id?: number;
+  title: string;
+  position: string;
+  startDate: string;
+  endDate?: string;
+  isActual: boolean;
+  description?: string;
+};
+
+export type EditWorkingExperienceInput = Omit<
+  WorkingExperience,
+  "createdAt" | "updatedAt"
+>;
