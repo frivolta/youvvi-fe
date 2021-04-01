@@ -13,7 +13,7 @@ import {
 import { H2 } from "../../../styles";
 import { CreateWorkingExperienceInput } from "../../../types/api.types";
 import { WorkingExperience } from "../../../types/entities.types";
-import { WorkingExperienceModal } from "./components";
+import { WorkingExperienceList, WorkingExperienceModal } from "./components";
 import { AddNewWorkingExperienceIcon } from "./styled";
 
 export const WorkingExperienceInfo = () => {
@@ -45,6 +45,10 @@ export const WorkingExperienceInfo = () => {
     const isEditMode = !!editingWorkingExperience;
   };
 
+  const onDeleteWorkingExperience = (id: number) => {
+    console.log("Delete", id);
+  };
+
   const pageContent = (
     <>
       <WorkingExperienceModal
@@ -62,6 +66,11 @@ export const WorkingExperienceInfo = () => {
           dataTestId="create-education-button"
         />
       </Card>
+      <WorkingExperienceList
+        workingExperiences={currentProfile?.workingExperiences || []}
+        handleEditAction={handleSetWorkingExperienceToEdit}
+        handleDeleteAction={onDeleteWorkingExperience}
+      />
     </>
   );
 
