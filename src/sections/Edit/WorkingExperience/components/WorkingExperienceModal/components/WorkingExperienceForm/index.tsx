@@ -21,7 +21,7 @@ const WorkingExperienceSchema = Yup.object().shape({
   title: Yup.string().min(2, "Too short").max(50, "Too long").required(),
   position: Yup.string().min(2, "Too short").max(50, "Too long").required(),
   startDate: Yup.string().min(2, "Too short").max(10, "Too long").required(),
-  endDate: Yup.string().min(2, "Too short").max(4, "Too long").nullable(),
+  endDate: Yup.string().min(2, "Too short").max(10, "Too long").nullable(),
   isActual: Yup.boolean().nullable(),
   description: Yup.string().min(2, "Too short").max(250, "Too long").nullable(),
 });
@@ -36,7 +36,7 @@ interface CreateWorkingExperienceInput {
   description?: string;
 }
 
-export const EducationForm = ({
+export const WorkingExperienceForm = ({
   editingWorkingExperience,
   handleSubmitForm,
 }: Props) => {
@@ -51,20 +51,13 @@ export const EducationForm = ({
     },
     enableReinitialize: true,
     validationSchema: WorkingExperienceSchema,
-    onSubmit: async ({
-      title,
-      position,
-      startDate,
-      endDate,
-      isActual,
-      description,
-    }) => {
+    onSubmit: async ({ title, position, startDate, endDate, description }) => {
       handleSubmitForm({
         title,
         position,
         startDate,
         endDate,
-        isActual,
+        isActual: false,
         description,
       });
     },
@@ -106,7 +99,7 @@ export const EducationForm = ({
       <StyledWorkingExperienceFormInputContainer>
         <StyledWorkingExperienceFormInput>
           <Input
-            name="startYear"
+            name="startDate"
             handleChange={formik.handleChange}
             handleBlur={formik.handleBlur}
             value={formik.values.startDate}
@@ -120,16 +113,34 @@ export const EducationForm = ({
         </StyledWorkingExperienceFormInput>
         <StyledWorkingExperienceFormInput>
           <Input
-            name="endYear"
+            name="endDate"
             handleChange={formik.handleChange}
             handleBlur={formik.handleBlur}
             value={formik.values.endDate}
             type="text"
-            placeholder="Aug 2020 (Current occupation if empty)"
+            placeholder="Aug 2020 (or Now)"
             hasErrors={
               formik.touched.endDate && formik.errors.endDate ? true : false
             }
             errorMessage={formik.errors.endDate}
+          />
+        </StyledWorkingExperienceFormInput>
+      </StyledWorkingExperienceFormInputContainer>
+      <StyledWorkingExperienceFormInputContainer>
+        <StyledWorkingExperienceFormInput>
+          <Input
+            name="description"
+            handleChange={formik.handleChange}
+            handleBlur={formik.handleBlur}
+            value={formik.values.description}
+            type="text"
+            placeholder="Description..."
+            hasErrors={
+              formik.touched.description && formik.errors.description
+                ? true
+                : false
+            }
+            errorMessage={formik.errors.description}
           />
         </StyledWorkingExperienceFormInput>
       </StyledWorkingExperienceFormInputContainer>

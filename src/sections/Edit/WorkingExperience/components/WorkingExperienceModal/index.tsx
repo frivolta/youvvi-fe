@@ -1,7 +1,7 @@
 import { Modal } from "../../../../../components";
 import { CreateWorkingExperienceInput } from "../../../../../types/api.types";
 import { WorkingExperience } from "../../../../../types/entities.types";
-import { EducationForm } from "./components";
+import { WorkingExperienceForm } from "./components";
 
 interface Props {
   isOpen: boolean;
@@ -22,7 +22,7 @@ export const WorkingExperienceModal = ({
 }: Props) => {
   return (
     <Modal isOpen={isOpen} handleOpen={handleOpen}>
-      <EducationForm
+      <WorkingExperienceForm
         isEdit={isEdit}
         editingWorkingExperience={editingWorkingExperience}
         handleSubmitForm={handleEditOrCreate}

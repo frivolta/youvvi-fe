@@ -1,6 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  deleteWorkingExperience,
+  updateWorkingExperience,
+} from "../../../app/profile/actions/workingExperienceActions";
+import {
   fetchProfile,
   profileSelector,
 } from "../../../app/profile/profileSlice";
@@ -40,13 +44,24 @@ export const WorkingExperienceInfo = () => {
   };
 
   const onEditOrCreateWorkingExperience = (
-    updateEducationInput: CreateWorkingExperienceInput
+    updateWorkingExperienceInput: CreateWorkingExperienceInput
   ) => {
     const isEditMode = !!editingWorkingExperience;
+    isEditMode && editingWorkingExperience
+      ? dispatch(
+          updateWorkingExperience({
+            id: editingWorkingExperience.id,
+            ...updateWorkingExperienceInput,
+          })
+        )
+      : dispatch(updateWorkingExperience(updateWorkingExperienceInput));
+    setIsModalOpen(false);
+    setEditingWorkingExperience(undefined);
   };
 
   const onDeleteWorkingExperience = (id: number) => {
-    console.log("Delete", id);
+    dispatch(deleteWorkingExperience(id));
+    setIsModalOpen(false);
   };
 
   const pageContent = (

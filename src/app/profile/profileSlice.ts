@@ -13,6 +13,10 @@ import {
 import { toasterError, toasterSuccess } from "../../utils/toast";
 import { RootState } from "../store";
 import { deleteEducation, updateEducation } from "./actions";
+import {
+  deleteWorkingExperience,
+  updateWorkingExperience,
+} from "./actions/workingExperienceActions";
 
 interface ProfileState {
   hasProfile: boolean;
@@ -193,6 +197,52 @@ export const profileSlice = createSlice({
       toasterError("Cannot delete education");
     });
     builder.addCase(deleteEducation.pending, (state) => {
+      state.isLoading = true;
+      state.hasProfile = false;
+      state.currentProfile = initialProfile;
+      state.error = { hasErrors: false, message: null };
+    });
+    builder.addCase(updateWorkingExperience.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
+      state.hasProfile = true;
+      state.currentProfile = payload;
+      state.error = { hasErrors: false, message: null };
+      toasterSuccess("WorkingExperience updated");
+    });
+    builder.addCase(updateWorkingExperience.rejected, (state, { payload }) => {
+      state.isLoading = true;
+      state.hasProfile = false;
+      state.currentProfile = initialProfile;
+      state.error = {
+        hasErrors: true,
+        message: payload?.error || "Cannot update working experience",
+      };
+      toasterError("Cannot update working experience");
+    });
+    builder.addCase(updateWorkingExperience.pending, (state) => {
+      state.isLoading = true;
+      state.hasProfile = false;
+      state.currentProfile = initialProfile;
+      state.error = { hasErrors: false, message: null };
+    });
+    builder.addCase(deleteWorkingExperience.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
+      state.hasProfile = true;
+      state.currentProfile = payload;
+      state.error = { hasErrors: false, message: null };
+      toasterSuccess("Working Experience deleted");
+    });
+    builder.addCase(deleteWorkingExperience.rejected, (state, { payload }) => {
+      state.isLoading = true;
+      state.hasProfile = false;
+      state.currentProfile = initialProfile;
+      state.error = {
+        hasErrors: true,
+        message: payload?.error || "Cannot delete working experience",
+      };
+      toasterError("Cannot delete working experience");
+    });
+    builder.addCase(deleteWorkingExperience.pending, (state) => {
       state.isLoading = true;
       state.hasProfile = false;
       state.currentProfile = initialProfile;
