@@ -22,17 +22,23 @@ export const EducationList = ({
 }: Props) => {
   const educationElement = (education: Education) => {
     return (
-      <Card key={education.id} margin="8px auto">
+      <Card
+        key={education.id}
+        margin="8px auto"
+        testId={`education-${education.title}`}
+      >
         <StyledEducationCardContent>
           <H5>{truncateString(education.title, 50)}</H5>
           <StyledEducationActionContainer>
             <IconAction
               icon={<EditEducationIcon />}
               action={() => handleEditAction(education)}
+              dataTestId="edit-education-button"
             />
             <IconAction
               icon={<DeleteEducationIcon />}
               action={() => handleDeleteAction(education.id)}
+              dataTestId="delete-education-button"
             />
           </StyledEducationActionContainer>
         </StyledEducationCardContent>

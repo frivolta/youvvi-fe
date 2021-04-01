@@ -3,7 +3,7 @@ import { NETWORK } from "../config/variables";
 //@ts-ignore
 import * as completeProfile from "../fixtures/completeProfile.json";
 
-describe("Routing", () => {
+describe("General informations", () => {
   beforeEach(() => {
     localStorage.setItem("yuvviToken", testUser.validToken);
     cy.visit(`${NETWORK.LOCAL}/signin`);

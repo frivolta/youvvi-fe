@@ -73,6 +73,7 @@ export const EducationInfo = () => {
         <IconAction
           icon={<AddNewEducationIcon />}
           action={handleCreateNewEducation}
+          dataTestId="create-education-button"
         />
       </Card>
       <EducationList
