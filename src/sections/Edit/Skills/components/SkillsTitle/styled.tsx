@@ -1,14 +1,6 @@
 import { IoAddCircleSharp } from "react-icons/io5";
-import styled, { keyframes } from "styled-components";
-
-const rotate = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-`;
+import styled from "styled-components";
+import { rotate } from "../../../../../styles/animations";
 
 export const AddNewSkillGroupIcon = styled(IoAddCircleSharp)`
   color: ${(props) => props.theme.colors.wants};
