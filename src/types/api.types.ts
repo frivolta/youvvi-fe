@@ -2,6 +2,7 @@ import {
   CompleteProfile,
   Education,
   Profile,
+  Skillset,
   WorkingExperience,
 } from "./entities.types";
 
@@ -77,3 +78,17 @@ export type EditWorkingExperienceInput = Omit<
   WorkingExperience,
   "createdAt" | "updatedAt"
 >;
+
+// Skillset
+export type CreateSkillsetInput = Omit<
+  Skillset,
+  "id" | "createdAt" | "updatedAt"
+>;
+
+export type EditSkillsetInput = Omit<Skillset, "createdAt" | "updatedAt">;
+
+export type EditOrCreateSkillsetInput = {
+  id?: number;
+  title: string;
+  skills: string[];
+};

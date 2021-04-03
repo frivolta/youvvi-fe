@@ -12,13 +12,21 @@ import { WorkingExperiencesPage } from "./pages/workingExperiences";
 export const Routes: React.FC = () => {
   return (
     <>
-      <PrivateRoute exact path="/" component={ResumePreviewPage} />
+      <PrivateRoute exact path="/" component={GeneralPage} />
       <Route exact path="/signin" component={SigninPage} />
       <PrivateRoute exact path="/preview" component={ResumePreviewPage} />
       <PrivateRoute exact path="/general" component={GeneralPage} />
       <PrivateRoute exact path="/education" component={EducationPage} />
-      <PrivateRoute exact path="/working-experiences" component={WorkingExperiencesPage} />
-      <PrivateRoute exact path="/personal-skills" component={PersonalSkillsPage} />
+      <PrivateRoute
+        exact
+        path="/working-experiences"
+        component={WorkingExperiencesPage}
+      />
+      <PrivateRoute
+        exact
+        path="/personal-skills"
+        component={PersonalSkillsPage}
+      />
     </>
   );
 };
