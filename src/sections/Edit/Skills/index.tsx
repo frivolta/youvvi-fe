@@ -1,10 +1,12 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { deleteSkillset, updateSkillset } from "../../../app/profile/actions";
 import {
   fetchProfile,
   profileSelector,
 } from "../../../app/profile/profileSlice";
 import { ErrorCard, LoadingScreen } from "../../../components";
+import { CreateSkillsetInput } from "../../../types/api.types";
 import { Skillset } from "../../../types/entities.types";
 import { SkillsList } from "./components/SkillsList";
 import { SkillsModal } from "./components/SkillsModal";
@@ -32,12 +34,20 @@ export const SkillsInfo = () => {
     setEditingSkillset(s);
   };
 
-  const onEditOrCreateSkillset = () => {
-    console.log("on edit");
+  const onEditOrCreateSkillset = (updateSkillsetInput: CreateSkillsetInput) => {
+    const isEditMode = !!editingSkillset;
+    isEditMode && editingSkillset
+      ? dispatch(
+          updateSkillset({ id: editingSkillset.id, ...updateSkillsetInput })
+        )
+      : dispatch(updateSkillset(updateSkillsetInput));
+    setIsModalOpen(false);
+    setEditingSkillset(undefined);
   };
 
   const onDeleteSkill = (id: number) => {
-    console.log("delete");
+    dispatch(deleteSkillset(id));
+    setIsModalOpen(false);
   };
 
   console.log(currentProfile);

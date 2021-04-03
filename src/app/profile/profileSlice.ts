@@ -12,7 +12,12 @@ import {
 } from "../../types/entities.types";
 import { toasterError, toasterSuccess } from "../../utils/toast";
 import { RootState } from "../store";
-import { deleteEducation, updateEducation } from "./actions";
+import {
+  deleteEducation,
+  deleteSkillset,
+  updateEducation,
+  updateSkillset,
+} from "./actions";
 import {
   deleteWorkingExperience,
   updateWorkingExperience,
@@ -207,7 +212,7 @@ export const profileSlice = createSlice({
       state.hasProfile = true;
       state.currentProfile = payload;
       state.error = { hasErrors: false, message: null };
-      toasterSuccess("Working Experience updated");
+      toasterSuccess("Working experience updated");
     });
     builder.addCase(updateWorkingExperience.rejected, (state, { payload }) => {
       state.isLoading = true;
@@ -230,7 +235,7 @@ export const profileSlice = createSlice({
       state.hasProfile = true;
       state.currentProfile = payload;
       state.error = { hasErrors: false, message: null };
-      toasterSuccess("Working Experience deleted");
+      toasterSuccess("Skill Group deleted");
     });
     builder.addCase(deleteWorkingExperience.rejected, (state, { payload }) => {
       state.isLoading = true;
@@ -238,11 +243,57 @@ export const profileSlice = createSlice({
       state.currentProfile = initialProfile;
       state.error = {
         hasErrors: true,
-        message: payload?.error || "Cannot delete working experience",
+        message: payload?.error || "Cannot delete skillset",
       };
-      toasterError("Cannot delete working experience");
+      toasterError("Cannot delete skillset");
     });
     builder.addCase(deleteWorkingExperience.pending, (state) => {
+      state.isLoading = true;
+      state.hasProfile = false;
+      state.currentProfile = initialProfile;
+      state.error = { hasErrors: false, message: null };
+    });
+    builder.addCase(updateSkillset.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
+      state.hasProfile = true;
+      state.currentProfile = payload;
+      state.error = { hasErrors: false, message: null };
+      toasterSuccess("Skill Group updated");
+    });
+    builder.addCase(updateSkillset.rejected, (state, { payload }) => {
+      state.isLoading = true;
+      state.hasProfile = false;
+      state.currentProfile = initialProfile;
+      state.error = {
+        hasErrors: true,
+        message: payload?.error || "Cannot update skillset",
+      };
+      toasterError("Cannot update skillset");
+    });
+    builder.addCase(updateSkillset.pending, (state) => {
+      state.isLoading = true;
+      state.hasProfile = false;
+      state.currentProfile = initialProfile;
+      state.error = { hasErrors: false, message: null };
+    });
+    builder.addCase(deleteSkillset.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
+      state.hasProfile = true;
+      state.currentProfile = payload;
+      state.error = { hasErrors: false, message: null };
+      toasterSuccess("Skill Group deleted");
+    });
+    builder.addCase(deleteSkillset.rejected, (state, { payload }) => {
+      state.isLoading = true;
+      state.hasProfile = false;
+      state.currentProfile = initialProfile;
+      state.error = {
+        hasErrors: true,
+        message: payload?.error || "Cannot delete skillset",
+      };
+      toasterError("Cannot delete skillset");
+    });
+    builder.addCase(deleteSkillset.pending, (state) => {
       state.isLoading = true;
       state.hasProfile = false;
       state.currentProfile = initialProfile;

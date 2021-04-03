@@ -80,6 +80,7 @@ export const SkillsForm = ({
       title: skillsGroupTitle,
       skills: skillsetSkills,
     };
+    console.log("sending", payload);
     handleSubmitForm(payload);
   };
   //----./Actions dispatch
@@ -97,6 +98,7 @@ export const SkillsForm = ({
     },
     validationSchema: SkillsetGroupSchema,
     enableReinitialize: true,
+    validateOnChange: true,
   });
 
   // Skillset skill settings
@@ -124,7 +126,13 @@ export const SkillsForm = ({
         <StyledSkillsFormInput>
           <Input
             name="title"
-            handleChange={formikGroupTitle.handleChange}
+            handleChange={(e) => {
+              if (e.target.value.length) {
+                setSkillsGroupTitle(e.target.value);
+                setIsEdited(true);
+              }
+              formikGroupTitle.handleChange(e);
+            }}
             handleBlur={formikGroupTitle.handleBlur}
             value={formikGroupTitle.values.title}
             type="text"
