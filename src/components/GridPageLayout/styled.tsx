@@ -26,13 +26,14 @@ export const GridHeader = styled(Header)`
 `;
 
 export const GridSidebar = styled.div`
-grid-area: sidebar;
-  background-color: ${(props) => props.theme.colors.componentBackground};`
+  grid-area: sidebar;
+  background-color: ${(props) => props.theme.colors.componentBackground};
+`;
 
 export const GridMain = styled.div`
   grid-area: main;
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   background-color: ${(props) => props.theme.pageBackground};
