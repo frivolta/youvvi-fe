@@ -29,7 +29,7 @@ const SkillsetGroupSchema = Yup.object().shape({
 
 // Adding skills to the Skill Group
 const SkillsetSkillSchema = Yup.object().shape({
-  skill: Yup.string().min(2, "Too short").max(50, "Too long").required(),
+  skill: Yup.string().min(2, "Too short").max(50, "Too long").nullable(),
 });
 
 interface CreateSkillsGroupFormInputs {
@@ -194,7 +194,8 @@ export const SkillsForm = ({
       <StyledListItems>
         {skills.map((s, i) => (
           <StyledListItem onClick={() => removeSkill(s)}>
-            <StyledListItemIcon /> <Text key={i}>{truncateString(s, 25)}</Text>
+            <StyledListItemIcon data-testid={`remove-skill-${s}`} />
+            <Text key={i}>{truncateString(s, 25)}</Text>
           </StyledListItem>
         ))}
       </StyledListItems>
@@ -211,7 +212,7 @@ export const SkillsForm = ({
       <Button
         handleClick={composePayloadAndSubmit}
         text="Submit"
-        disabled={!isEdited || !skillsGroupTitle}
+        disabled={!isEdited || !skillsGroupTitle || !formikGroupTitle.isValid}
       />
     </StyledSkillsForm>
   );

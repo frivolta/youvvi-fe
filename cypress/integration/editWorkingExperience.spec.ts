@@ -103,7 +103,7 @@ describe("Working experience informations", () => {
     cy.get('[data-testid="workingExperience-New Working Patched"]').should(
       "be.visible"
     );
-    cy.contains("Working Experience updated");
+    cy.contains("Working experience updated");
   });
 
   it("let user delete an working experience", () => {
@@ -127,7 +127,7 @@ describe("Working experience informations", () => {
     cy.get('[data-testid="workingExperience-New Working Experience"]').should(
       "not.exist"
     );
-    cy.contains("Working Experience deleted");
+    cy.contains("Working experience deleted");
   });
   it("prevent user from adding invalid education", () => {
     let getProfileCount = -1;

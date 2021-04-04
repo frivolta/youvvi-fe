@@ -42,7 +42,7 @@ describe("Education informations", () => {
     });
   });
 
-  it("let user see his education titles", () => {
+  it("let user see his education title", () => {
     cy.intercept("GET", "**/profile/complete-profile", {
       statusCode: 200,
       body: completeProfileNoEducations,

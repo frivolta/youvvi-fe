@@ -235,7 +235,7 @@ export const profileSlice = createSlice({
       state.hasProfile = true;
       state.currentProfile = payload;
       state.error = { hasErrors: false, message: null };
-      toasterSuccess("Skill Group deleted");
+      toasterSuccess("Working experience deleted");
     });
     builder.addCase(deleteWorkingExperience.rejected, (state, { payload }) => {
       state.isLoading = true;

@@ -1,0 +1,49 @@
+{
+    "ok": true,
+    "user": {
+        "id": 2,
+        "createdAt": "2021-03-30T09:34:09.813Z",
+        "updatedAt": "2021-03-30T09:53:38.727Z",
+        "email": "testa@test.it",
+        "userId": "cd3e7d08-f3f5-49e2-9145-b125ea0a4808",
+        "profile": {
+            "id": 2,
+            "createdAt": "2021-03-30T09:53:38.727Z",
+            "updatedAt": "2021-03-30T12:14:32.757Z",
+            "name": "Filippo Rivolta",
+            "email": "info@fili.it",
+            "phone": null,
+            "website": "www.pippo.it",
+            "biography": "asfsdfasd",
+            "bottomNotes": [
+                "fasdfasd"
+            ],
+            "workTitle": "asdfasdfas",
+            "photoUrl": "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200"
+        },
+        "workingExperiences": [],
+        "educations": [
+            {
+                "id": 16,
+                "createdAt": "2021-04-01T08:22:59.105Z",
+                "updatedAt": "2021-04-01T08:22:59.105Z",
+                "title": "New Education",
+                "institute": "New Institute",
+                "startYear": "2015",
+                "endYear": "2018"
+            }
+        ],
+        "skillsets": [
+            {
+                "id": 14,
+                "createdAt": "2021-04-04T10:08:02.873Z",
+                "updatedAt": "2021-04-04T10:08:02.873Z",
+                "title": "New skillset patched",
+                "skills": [
+                    "skill two",
+                    "skill patched"
+                ]
+            }
+        ]
+    }
+}
