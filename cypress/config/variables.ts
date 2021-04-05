@@ -1,4 +1,4 @@
 export enum NETWORK {
-    SERVER = "http://localhost:4000",
-    LOCAL = "http://localhost:3000"
-  }
+  SERVER = "https://yuvvi-be.herokuapp.com",
+  LOCAL = "http://localhost:3000",
+}
